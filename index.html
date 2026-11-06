@@ -1,0 +1,1161 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="JUNSAN Pro Electric, electricistas en Albacete: reformas eléctricas, iluminación LED, cuadros, boletines CIE y puntos de recarga. Presupuesto gratis.">
+<link rel="canonical" href="https://anavhoy88.github.io/junsan/">
+<meta property="og:type" content="website"><meta property="og:title" content="JUNSAN Pro Electric · Electricistas en Albacete"><meta property="og:description" content="Reformas eléctricas, iluminación LED, cuadros, boletines y recarga de coche eléctrico. Presupuesto gratis."><meta property="og:image" content="https://anavhoy88.github.io/junsan/img/salon-led.jpg"><meta property="og:url" content="https://anavhoy88.github.io/junsan/"><meta property="og:locale" content="es_ES">
+<meta name="theme-color" content="#141517">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/barlow-condensed-latin-900-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="fonts/fonts.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Electrician", "name": "JUNSAN Pro Electric", "legalName": "JUNSAN, CB", "taxID": "E26621060", "url": "https://anavhoy88.github.io/junsan", "image": "https://anavhoy88.github.io/junsan/img/salon-led.jpg", "email": "junsanproelectric@gmail.com", "telephone": ["+34670801637", "+34661967310"], "address": {"@type": "PostalAddress", "streetAddress": "C/ Segovia, 43, planta baja", "postalCode": "02002", "addressLocality": "Albacete", "addressRegion": "Albacete", "addressCountry": "ES"}, "areaServed": "Provincia de Albacete", "founder": [{"@type": "Person", "name": "Pablo Junco"}, {"@type": "Person", "name": "Iván Sánchez"}]}</script>
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px/1.5 system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>JUNSAN Pro Electric · Electricistas en Albacete</title>
+<script src="vendor/jspdf.umd.min.js" defer></script>
+<script src="vendor/supabase.js"></script>
+<script>window.JUNSAN_SB={url:"https://wsbazesvcubvznstwsbk.supabase.co",key:"sb_publishable_RG4ykQV9Vx9jePY3Kx6NIg_C3vs7Xgp"};</script>
+<style>
+/* Layout: obra eléctrica — tipografía condensada en cursiva como el logo, placas negras inclinadas, amarillo solo como relleno de acento */
+:root{
+  --bg:#F2F3F1; --surface:#FFFFFF; --sunk:#E6E8E5; --ink:#141517; --muted:#5C6268; --line:#D3D6D2;
+  --accent:#F4C21A; --accent-ink:#141517; --plate:#141517; --plate-ink:#FFFFFF;
+  --ok:#1E7D4F; --warn:#B26A00; --bad:#B4322A; --info:#2A5DB0;
+  --ok-bg:#DFF1E7; --warn-bg:#FBEBCF; --bad-bg:#F7DEDB; --info-bg:#DEE7F7;
+  --f-display:"Barlow Condensed","Arial Narrow",Impact,sans-serif;
+  --f-body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --r:6px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0F1012; --surface:#1A1C1F; --sunk:#232629; --ink:#ECECE7; --muted:#9BA1A7; --line:#30343A;
+  --plate:#000000; --plate-ink:#FFFFFF;
+  --ok:#5BC48D; --warn:#F0A63C; --bad:#F07A70; --info:#7EA6EE;
+  --ok-bg:#16301F; --warn-bg:#33270F; --bad-bg:#3A1A17; --info-bg:#172440; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1012; --surface:#1A1C1F; --sunk:#232629; --ink:#ECECE7; --muted:#9BA1A7; --line:#30343A;
+  --plate:#000000; --plate-ink:#FFFFFF;
+  --ok:#5BC48D; --warn:#F0A63C; --bad:#F07A70; --info:#7EA6EE;
+  --ok-bg:#16301F; --warn-bg:#33270F; --bad-bg:#3A1A17; --info-bg:#172440; color-scheme:dark}
+
+*{box-sizing:border-box}
+html,body{background:var(--bg);color:var(--ink)}
+body{font-family:var(--f-body);font-size:16px;line-height:1.55}
+a{color:inherit}
+h1,h2,h3{font-family:var(--f-display);font-style:italic;font-weight:800;line-height:1;margin:0;text-wrap:balance;letter-spacing:.005em}
+.wrap{max-width:1160px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.eyebrow{font-family:var(--f-display);font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:.82rem;color:var(--muted)}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+/* Logo */
+.logo{display:inline-flex;flex-direction:column;align-items:flex-start;text-decoration:none;gap:2px}
+.logo .plate{background:var(--plate);color:var(--plate-ink);font-family:var(--f-display);font-style:italic;font-weight:900;font-size:1.7rem;line-height:1;padding:3px 12px 1px;transform:skewX(-10deg);display:flex;align-items:center;letter-spacing:.01em}
+.logo .plate>span{transform:skewX(10deg);display:inline-flex;align-items:center}
+.logo .bolt{width:.62em;height:.95em;margin:0 .02em}
+.logo .sub{background:var(--accent);color:var(--accent-ink);font-family:var(--f-display);font-style:italic;font-weight:800;font-size:.72rem;letter-spacing:.12em;padding:0 8px;margin-left:14px;transform:skewX(-10deg)}
+.logo.big .plate{font-size:clamp(2.6rem,7vw,4.2rem);padding:6px 22px 2px}
+.logo.big .sub{font-size:clamp(.9rem,2vw,1.2rem);margin-left:26px}
+
+/* Header */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:10px;flex-wrap:wrap}
+nav.main{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+nav.main a{text-decoration:none;font-family:var(--f-display);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:.95rem;padding:8px 10px;border-radius:var(--r)}
+nav.main a:hover{background:var(--sunk)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:var(--r);padding:10px 16px;font-family:var(--f-display);font-weight:800;font-style:italic;text-transform:uppercase;letter-spacing:.05em;font-size:1rem;cursor:pointer;text-decoration:none;line-height:1.1}
+.btn-accent{background:var(--accent);color:var(--accent-ink)}
+.btn-accent:hover{filter:brightness(1.05)}
+.btn-plate{background:var(--plate);color:var(--plate-ink)}
+.btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--ink)}
+.btn-danger{background:transparent;border:1.5px solid var(--bad);color:var(--bad)}
+.btn-sm{padding:6px 10px;font-size:.85rem}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+
+/* Hero */
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,5vw,64px);align-items:center;padding-block:clamp(36px,7vw,84px)}
+.hero h1{font-size:clamp(2.7rem,7.2vw,5.4rem);font-weight:900;text-transform:uppercase}
+.hero h1 .hl{background:var(--accent);color:var(--accent-ink);padding:0 .14em;display:inline-block;transform:skewX(-8deg)}
+.hero h1 .hl>span{display:inline-block;transform:skewX(8deg)}
+.hero p.lead{font-size:1.15rem;color:var(--muted);max-width:52ch;margin:20px 0 26px}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+.hero .facts{display:flex;gap:28px;flex-wrap:wrap;margin-top:32px;padding-top:20px;border-top:1px solid var(--line)}
+.hero .facts div{display:flex;flex-direction:column}
+.hero .facts b{font-family:var(--f-display);font-style:italic;font-weight:800;font-size:1.5rem;line-height:1.1}
+.hero .facts span{font-size:.85rem;color:var(--muted)}
+.hero-photo{position:relative;max-width:460px;width:100%;justify-self:center}
+.hero-photo img{width:100%;aspect-ratio:1;object-fit:cover;clip-path:circle(49% at 50% 50%);display:block;max-width:100%}
+.hero-photo .tag{position:absolute;left:0;bottom:6%;background:var(--plate);color:var(--plate-ink);font-family:var(--f-display);font-style:italic;font-weight:700;padding:6px 12px;transform:skewX(-10deg);font-size:.95rem}
+
+section.block{padding-block:clamp(44px,7vw,80px)}
+section.alt{background:var(--surface);border-block:1px solid var(--line)}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:28px}
+.sec-head h2{font-size:clamp(2rem,4.5vw,3.1rem);text-transform:uppercase}
+.sec-head p{color:var(--muted);max-width:48ch;margin:8px 0 0}
+
+/* Servicios */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.service{background:var(--bg);padding:24px 22px;display:flex;flex-direction:column;gap:10px;min-width:0}
+section.alt .service{background:var(--surface)}
+.service svg{width:34px;height:34px;color:var(--ink)}
+.service .ico{width:52px;height:52px;display:grid;place-items:center;background:var(--accent);color:var(--accent-ink);transform:skewX(-8deg)}
+.service .ico svg{transform:skewX(8deg);color:var(--accent-ink)}
+.service h3{font-size:1.45rem;text-transform:uppercase}
+.service p{margin:0;color:var(--muted);font-size:.97rem}
+.service .ref{font-family:var(--f-mono);font-size:.75rem;color:var(--muted);margin-top:auto;padding-top:6px}
+
+/* Trabajos */
+.filters{display:flex;gap:6px;flex-wrap:wrap}
+.chip{border:1.5px solid var(--line);background:transparent;border-radius:999px;padding:5px 12px;font-size:.88rem;cursor:pointer;font-weight:600}
+.chip[aria-pressed="true"]{background:var(--plate);color:var(--plate-ink);border-color:var(--plate)}
+.works{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.work{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;min-width:0}
+.work .ph{aspect-ratio:4/3;background:var(--sunk);position:relative;overflow:hidden;max-width:100%}
+.work .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.work .ph .noimg{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted);background:repeating-linear-gradient(135deg,var(--sunk) 0 14px,var(--bg) 14px 28px)}
+.work .ph .noimg svg{width:56px;height:56px}
+.work .cat{position:absolute;top:10px;left:10px;background:var(--accent);color:var(--accent-ink);font-family:var(--f-display);font-weight:800;font-style:italic;text-transform:uppercase;font-size:.8rem;padding:2px 8px;letter-spacing:.06em}
+.work .body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px}
+.work h3{font-size:1.3rem}
+.work .meta{font-size:.85rem;color:var(--muted)}
+.work p{margin:0;font-size:.95rem}
+.example{display:inline-block;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--warn);background:var(--warn-bg);padding:1px 6px;border-radius:3px;vertical-align:middle}
+.empty{border:1.5px dashed var(--line);border-radius:var(--r);padding:28px;text-align:center;color:var(--muted)}
+
+/* Contacto */
+.contact{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,5vw,56px)}
+.contact-info{display:flex;flex-direction:column;gap:18px}
+.cinfo{display:flex;gap:14px;align-items:flex-start}
+.cinfo .k{font-family:var(--f-display);font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.78rem;color:var(--muted)}
+.cinfo .v{font-size:1.15rem;font-weight:600;word-break:break-word}
+.cinfo .v.pending{color:var(--muted);font-weight:500;font-style:italic}
+.copy{border:0;background:var(--sunk);border-radius:4px;padding:3px 8px;font-size:.78rem;cursor:pointer;margin-left:6px;font-weight:600}
+form.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{display:flex;flex-direction:column;gap:5px;min-width:0}
+.field.full{grid-column:1/-1}
+.field label{font-size:.85rem;font-weight:600}
+.field input,.field select,.field textarea{background:var(--surface);border:1.5px solid var(--line);border-radius:var(--r);padding:9px 11px;width:100%;min-width:0}
+.field textarea{min-height:110px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--ink);outline:none}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:.88rem;color:var(--muted)}
+.check input{margin-top:4px}
+.notice{padding:12px 14px;border-radius:var(--r);font-size:.95rem}
+.notice.ok{background:var(--ok-bg);color:var(--ok)}
+.notice.warn{background:var(--warn-bg);color:var(--warn)}
+.notice.bad{background:var(--bad-bg);color:var(--bad)}
+
+footer.foot{background:var(--plate);color:#CFD2D4;padding-block:36px}
+footer.foot .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-end}
+footer.foot small{display:block;line-height:1.7}
+footer.foot a{color:#fff}
+
+/* ============ ÁREA SOCIOS ============ */
+.admin{min-height:100vh}
+.admin-top{background:var(--plate);color:var(--plate-ink)}
+.admin-top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:12px;flex-wrap:wrap}
+.admin-top .who{font-size:.9rem;color:#C9CCCF}
+.admin-top a.back{color:#fff;font-size:.9rem}
+.tabs{display:flex;gap:2px;overflow-x:auto;border-bottom:1px solid var(--line);background:var(--surface)}
+.tabs-wrap{background:var(--surface);border-bottom:1px solid var(--line)}
+.tabs button{border:0;background:transparent;padding:14px 14px 12px;font-family:var(--f-display);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:.95rem;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;color:var(--muted)}
+.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+.tabs .count{font-family:var(--f-mono);font-size:.72rem;background:var(--sunk);border-radius:99px;padding:1px 6px;margin-left:4px;color:var(--ink)}
+.panel{padding-block:24px 60px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:28px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.kpi .k{font-size:.82rem;color:var(--muted);font-weight:600}
+.kpi .v{font-family:var(--f-mono);font-weight:600;font-size:1.45rem;font-variant-numeric:tabular-nums}
+.kpi .s{font-size:.8rem;color:var(--muted)}
+.toolbar{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+.toolbar .left{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.search{background:var(--surface);border:1.5px solid var(--line);border-radius:var(--r);padding:8px 11px;min-width:0;width:220px;max-width:100%}
+.table-box{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+table.list{width:100%;border-collapse:collapse;font-size:.94rem}
+table.list th{text-align:left;font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600;padding:10px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+table.list td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
+table.list tr:last-child td{border-bottom:0}
+table.list tbody tr{cursor:pointer}
+table.list tbody tr:hover{background:var(--sunk)}
+td.num,th.num{text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.pill{display:inline-block;font-size:.75rem;font-weight:700;padding:2px 9px;border-radius:99px;white-space:nowrap}
+.p-borrador{background:var(--sunk);color:var(--muted)}
+.p-enviado,.p-emitida{background:var(--info-bg);color:var(--info)}
+.p-aceptado,.p-pagada{background:var(--ok-bg);color:var(--ok)}
+.p-rechazado,.p-vencida{background:var(--bad-bg);color:var(--bad)}
+.p-nuevo{background:var(--warn-bg);color:var(--warn)}
+.p-atendido{background:var(--ok-bg);color:var(--ok)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;min-width:0}
+.card h3{font-size:1.3rem;text-transform:uppercase;margin-bottom:12px}
+.mini-list{display:flex;flex-direction:column}
+.mini-list .row{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:.93rem;cursor:pointer}
+.mini-list .row:last-child{border-bottom:0}
+.mini-list .row .l{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.gate{max-width:520px;margin:60px auto;text-align:center;display:flex;flex-direction:column;gap:14px;align-items:center}
+
+/* Modal / editor */
+.overlay{position:fixed;inset:0;background:rgba(10,11,12,.55);z-index:50;display:flex;justify-content:center;align-items:flex-start;overflow-y:auto;padding:calc(20px + env(safe-area-inset-top,0px)) max(12px,env(safe-area-inset-right,0px)) calc(20px + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px))}
+.modal{background:var(--bg);border-radius:10px;width:100%;max-width:980px;box-shadow:0 20px 60px rgba(0,0,0,.35);overflow:hidden}
+.modal.narrow{max-width:560px}
+.modal-h{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 18px;background:var(--plate);color:var(--plate-ink);flex-wrap:wrap}
+.modal-h h2{font-size:1.6rem;text-transform:uppercase}
+.modal-h .x{background:transparent;border:0;color:#fff;font-size:1.6rem;cursor:pointer;line-height:1}
+.modal-b{padding:18px;display:flex;flex-direction:column;gap:18px}
+.modal-f{display:flex;justify-content:space-between;gap:10px;padding:14px 18px;border-top:1px solid var(--line);flex-wrap:wrap;background:var(--surface)}
+.modal-f .grp{display:flex;gap:8px;flex-wrap:wrap}
+.grid3{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.lines-box{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+table.lines{width:100%;border-collapse:collapse;min-width:640px}
+table.lines th{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);text-align:left;padding:8px;border-bottom:1px solid var(--line)}
+table.lines td{padding:5px 6px;border-bottom:1px solid var(--line)}
+table.lines input,table.lines select{width:100%;border:1px solid transparent;background:transparent;padding:6px;border-radius:4px;min-width:0}
+table.lines input:hover,table.lines input:focus,table.lines select:focus{border-color:var(--line);background:var(--bg);outline:none}
+table.lines input.n{text-align:right;font-family:var(--f-mono)}
+table.lines .rm{border:0;background:transparent;cursor:pointer;color:var(--muted);font-size:1.2rem}
+.totals{display:grid;grid-template-columns:auto auto;gap:4px 24px;justify-content:end;font-size:.95rem}
+.totals .t{text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.totals .big{font-family:var(--f-display);font-style:italic;font-weight:800;font-size:1.5rem}
+.totals .big.t{font-family:var(--f-mono);font-style:normal;font-weight:600;font-size:1.3rem}
+.confirm-bar{display:flex;gap:10px;align-items:center;background:var(--bad-bg);color:var(--bad);padding:10px 14px;border-radius:var(--r);flex-wrap:wrap;font-weight:600}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--plate);color:var(--plate-ink);padding:10px 18px;border-radius:var(--r);z-index:80;font-weight:600;box-shadow:0 6px 20px rgba(0,0,0,.3)}
+.hint{font-size:.85rem;color:var(--muted)}
+
+/* Vista previa documento */
+.paper{background:#fff;color:#141517;border:1px solid var(--line);border-radius:4px;padding:28px;font-size:.88rem;overflow-x:auto}
+.paper .ph{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:3px solid #141517;padding-bottom:14px;margin-bottom:16px}
+.paper h4{margin:0;font-family:var(--f-display);font-style:italic;font-weight:900;font-size:1.8rem;text-transform:uppercase}
+.paper table{width:100%;border-collapse:collapse;margin:14px 0;min-width:480px}
+.paper th{text-align:left;font-size:.72rem;text-transform:uppercase;border-bottom:1.5px solid #141517;padding:6px}
+.paper td{padding:6px;border-bottom:1px solid #ddd}
+
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr}
+  .hero-photo{max-width:340px;order:-1}
+  .services,.works{grid-template-columns:1fr 1fr}
+  .contact{grid-template-columns:1fr}
+  .kpis{grid-template-columns:1fr 1fr}
+  .two{grid-template-columns:1fr}
+  .grid3{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  .services,.works{grid-template-columns:1fr}
+  form.grid{grid-template-columns:1fr}
+  nav.main a.hide-sm{display:none}
+  .search{width:100%}
+}
+@media (prefers-reduced-motion:no-preference){
+  .btn,.chip,nav.main a{transition:background-color .15s,filter .15s,border-color .15s}
+}
+
+/* ===== v2 ===== */
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.ic{width:20px;height:20px;flex:none}
+.btn-lg{padding:13px 22px;font-size:1.12rem}
+.nav-socios{margin-left:6px}
+.sec-head h2,.about h2,.faq-wrap h2,.contact h2{font-size:clamp(2.2rem,5vw,3.4rem);text-transform:uppercase;margin-top:8px}
+.eyebrow{display:flex;align-items:center;gap:8px}
+.eyebrow .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 30%,transparent)}
+@media (prefers-reduced-motion:no-preference){.eyebrow .dot{animation:pulse 2.4s ease-in-out infinite}}
+@keyframes pulse{50%{box-shadow:0 0 0 8px color-mix(in srgb,var(--accent) 0%,transparent)}}
+
+.hero{position:relative;overflow:hidden}
+.hero #spark{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.9}
+.hero .wrap{position:relative}
+.hero h1{font-size:clamp(3rem,8vw,6.2rem);line-height:.92;margin-top:14px}
+.hero dl.facts{margin:34px 0 0;display:grid;grid-template-columns:repeat(3,auto);gap:14px 32px;justify-content:start;padding-top:20px;border-top:1px solid var(--line)}
+.hero dl.facts div{display:flex;flex-direction:column}
+.hero dl.facts dt{font-family:var(--f-display);font-style:italic;font-weight:800;font-size:1.35rem;line-height:1.1;text-transform:uppercase}
+.hero dl.facts dd{margin:0;font-size:.88rem;color:var(--muted)}
+.hero-photo{margin:0}
+.hero-photo img{height:auto}
+@media (max-width:900px){.hero #spark{display:none}.hero-photo{max-width:260px!important}}
+.hero-photo::before{content:"";position:absolute;inset:6% -4% -4% 6%;border-radius:50%;background:var(--accent);z-index:-1}
+.hero-photo{isolation:isolate}
+.hero-photo .tag{bottom:4%}
+
+.strip{background:var(--plate);color:var(--plate-ink);overflow:hidden;transform:skewY(-1.4deg);margin-block:-6px 0;border-block:4px solid var(--accent)}
+.strip-in{display:flex;gap:22px;align-items:center;white-space:nowrap;padding-block:14px;width:max-content;transform:skewY(1.4deg)}
+.strip span{font-family:var(--f-display);font-style:italic;font-weight:800;font-size:1.5rem;text-transform:uppercase;letter-spacing:.03em}
+.strip i{width:12px;height:20px;background:var(--accent);clip-path:polygon(70% 0,0 60%,45% 60%,30% 100%,100% 40%,55% 40%);flex:none}
+@media (prefers-reduced-motion:no-preference){.strip-in{animation:slide 38s linear infinite}}
+@keyframes slide{to{transform:skewY(1.4deg) translateX(-50%)}}
+
+.service{transition:background-color .15s}
+.service:hover{background:var(--surface)}
+.svc-cta{font-weight:700;font-size:.92rem;text-decoration:none;color:var(--ink);border-bottom:2px solid var(--accent);align-self:flex-start;padding-bottom:1px}
+.service .ref{margin-top:auto}
+
+section.dark{background:var(--plate);color:var(--plate-ink)}
+section.dark .eyebrow,section.dark .sec-head p{color:#A9AEB3}
+section.dark .chip{border-color:#3A3F45;color:#fff}
+section.dark .chip[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+section.dark .work{background:#1C1F23;border-color:#2C3036;color:#fff}
+section.dark .work .meta{color:#A9AEB3}
+section.dark .empty{border-color:#3A3F45;color:#A9AEB3}
+.work{transition:transform .2s}
+@media (prefers-reduced-motion:no-preference){.work:hover{transform:translateY(-3px)}}
+.work .ph img{transition:transform .4s}
+.work:hover .ph img{transform:scale(1.04)}
+
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:s}
+.steps li{position:relative;padding:22px 22px 22px 0;display:flex;flex-direction:column;gap:8px;min-width:0}
+.steps li::before{content:"";position:absolute;top:44px;left:56px;right:0;height:3px;background:repeating-linear-gradient(90deg,var(--ink) 0 10px,transparent 10px 16px);opacity:.25}
+.steps li:last-child::before{display:none}
+.steps .n{width:44px;height:44px;display:grid;place-items:center;background:var(--accent);color:var(--accent-ink);font-family:var(--f-display);font-style:italic;font-weight:900;font-size:1.6rem;transform:skewX(-8deg)}
+.steps h3{font-size:1.4rem;text-transform:uppercase;margin-top:8px}
+.steps p{margin:0;color:var(--muted);font-size:.96rem;max-width:30ch}
+
+.about{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,6vw,72px)}
+.about-p{color:var(--muted);max-width:52ch;margin:12px 0 0;font-size:1.05rem}
+.team{display:flex;gap:14px;flex-wrap:wrap;margin-top:24px}
+.member{display:flex;gap:12px;align-items:center;background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:12px 18px 12px 12px;min-width:0}
+.member .ini{width:52px;height:52px;display:grid;place-items:center;background:var(--plate);color:var(--plate-ink);font-family:var(--f-display);font-style:italic;font-weight:900;font-size:1.4rem;transform:skewX(-8deg);flex:none}
+.member b{display:block;font-size:1.05rem}
+.member div span{font-size:.85rem;color:var(--muted)}
+.zone-title{font-size:1.9rem;text-transform:uppercase;margin:8px 0 14px}
+.towns{list-style:none;padding:0;margin:0 0 12px;display:flex;flex-wrap:wrap;gap:6px}
+.towns li{border:1.5px solid var(--line);border-radius:99px;padding:4px 12px;font-size:.9rem;font-weight:600}
+.towns li.main-town{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+
+.faq-wrap{display:grid;grid-template-columns:.7fr 1.3fr;gap:clamp(24px,5vw,60px);align-items:start}
+.faq{display:flex;flex-direction:column;border-top:2px solid var(--ink)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;padding:16px 36px 16px 0;font-weight:700;font-size:1.08rem;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:4px;top:10px;font-family:var(--f-display);font-weight:800;font-size:1.8rem;line-height:1}
+.faq details[open] summary::after{content:"−"}
+.faq details p{margin:0 0 18px;color:var(--muted);max-width:65ch}
+
+.contact h2{margin-bottom:0}
+.cinfo{display:flex;flex-direction:column;gap:3px}
+.cinfo .v{font-size:1.25rem;font-weight:700;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.cinfo .v.small{font-size:1.02rem;font-weight:500}
+.cinfo .v a{text-decoration:none}
+.cinfo .v .wa{display:inline-flex;align-items:center;gap:4px;font-size:.78rem;font-weight:700;background:var(--sunk);border-radius:4px;padding:3px 8px;text-decoration:none}
+.cinfo .v .wa svg{width:14px;height:14px}
+.form-card{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:clamp(16px,3vw,26px)}
+.flabel{font-size:.85rem;font-weight:600}
+.tipo-chips{display:flex;flex-wrap:wrap;gap:6px}
+.tipo-chips .chip[aria-checked="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.check.full{grid-column:1/-1;display:flex}
+.lnk{color:var(--ink);font-weight:600}
+.form-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+
+.foot-brand{display:flex;flex-direction:column;gap:10px}
+.foot-legal{text-align:right}
+.dark-plate{background:#000!important}
+.dark-plate .bolt{color:#fff}
+@media (max-width:700px){.foot-legal{text-align:left}}
+
+.fab{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.25);z-index:40}
+.fab svg{width:30px;height:30px}
+.fab:hover{filter:brightness(1.06)}
+
+/* páginas legales */
+.legal{max-width:760px}
+.legal h2{font-size:2.4rem;text-transform:uppercase;margin:6px 0 18px}
+.legal h3{font-family:var(--f-body);font-style:normal;font-weight:700;font-size:1.1rem;margin:22px 0 6px}
+.legal p,.legal li{color:var(--ink);max-width:68ch}
+.legal .note{background:var(--warn-bg);color:var(--warn);padding:10px 14px;border-radius:var(--r);font-size:.92rem}
+
+/* login socios */
+.login{max-width:400px;margin:56px auto;display:flex;flex-direction:column;gap:14px}
+.login h2{font-size:2.4rem;text-transform:uppercase}
+.login form{display:flex;flex-direction:column;gap:12px}
+
+@media (max-width:1000px){.steps{grid-template-columns:1fr 1fr;row-gap:8px}.steps li:nth-child(2)::before{display:none}nav.main a.hide-md{display:none}}
+@media (max-width:900px){.about,.faq-wrap{grid-template-columns:1fr}.hero dl.facts{grid-template-columns:1fr 1fr 1fr;gap:12px}}
+@media (max-width:560px){.steps{grid-template-columns:1fr}.steps li::before{display:none}.hero dl.facts{grid-template-columns:1fr}.strip span{font-size:1.2rem}.nav-socios{display:none}}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-bolt" viewBox="0 0 20 32"><path d="M13 0 2 18h7l-4 14L18 12h-7l5-12z" fill="var(--accent)" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-house" viewBox="0 0 24 24"><path d="M3 11 12 4l9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-led" viewBox="0 0 24 24"><path d="M3 5h18M3 5v3h18V5M7 12l-2 3M12 12v4M17 12l2 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zM14 2v6h6M9 13h8M9 17h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-panel" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 7v4M12 7v4M16 7v4M8 15h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-ev" viewBox="0 0 24 24"><rect x="4" y="3" width="10" height="18" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 7 7 12h4l-3 5M14 9h3a2 2 0 0 1 2 2v5a1.5 1.5 0 0 0 3 0V8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-net" viewBox="0 0 24 24"><circle cx="12" cy="5" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="5" cy="19" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="19" cy="19" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7.5v5M12 12.5 6.5 17M12 12.5l5.5 4.5" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.2z"/></symbol>
+  </defs>
+</svg>
+
+<!-- ================= WEB PÚBLICA ================= -->
+<div id="view-public">
+  <header class="top">
+    <div class="wrap">
+      <a class="logo" href="#inicio" aria-label="JUNSAN Pro Electric, inicio">
+        <span class="plate"><span>JUN<svg class="bolt"><use href="#i-bolt"/></svg>AN</span></span>
+        <span class="sub">PRO ELECTRIC</span>
+      </a>
+      <nav class="main" aria-label="Principal">
+        <a href="#servicios" class="hide-sm">Servicios</a>
+        <a href="#trabajos" class="hide-sm">Trabajos</a>
+        <a href="#nosotros" class="hide-md">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#socios" class="btn btn-plate btn-sm nav-socios">Socios</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="inicio">
+    <canvas id="spark" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="dot" aria-hidden="true"></span>Electricistas en <span data-pub="zona">Albacete y provincia</span></div>
+        <h1>Luz, potencia <span class="hl"><span>y papeles</span></span> en regla</h1>
+        <p class="lead">Somos JUNSAN: Pablo e Iván, dos socios que van en persona a cada obra. Reformas eléctricas completas, iluminación LED empotrada, cuadros, puntos de recarga y boletines, con presupuesto por escrito antes de tocar un cable.</p>
+        <div class="ctas">
+          <a href="#contacto" class="btn btn-accent btn-lg">Pide presupuesto</a>
+          <a class="btn btn-ghost btn-lg" id="hero-wa" href="#contacto" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
+        </div>
+        <dl class="facts">
+          <div><dt>Presupuesto</dt><dd>Gratis y por escrito</dd></div>
+          <div><dt>Boletín CIE</dt><dd>Lo tramitamos nosotros</dd></div>
+          <div><dt>Trato directo</dt><dd>Hablas con quien hace la obra</dd></div>
+        </dl>
+      </div>
+      <figure class="hero-photo">
+        <img src="img/salon-led.jpg" width="560" height="586" alt="Socio de JUNSAN instalando un perfil LED empotrado en el techo de un salón reformado">
+        <figcaption class="tag">Perfil LED empotrado · Albacete</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="strip" aria-hidden="true"><div class="strip-in"><span>Reformas</span><i></i><span>Iluminación LED</span><i></i><span>Boletines CIE</span><i></i><span>Cuadros</span><i></i><span>Recarga VE</span><i></i><span>Domótica</span><i></i><span>Averías</span><i></i><span>Reformas</span><i></i><span>Iluminación LED</span><i></i><span>Boletines CIE</span><i></i><span>Cuadros</span><i></i><span>Recarga VE</span><i></i><span>Domótica</span><i></i><span>Averías</span><i></i></div></div>
+
+  <section class="block" id="servicios">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow">Qué hacemos</div>
+          <h2>Servicios</h2>
+        </div>
+        <p>Para particulares, comunidades, negocios y constructoras. Cada servicio indica la instrucción técnica del Reglamento de Baja Tensión que aplicamos.</p>
+      </div>
+      <div class="services">
+        <article class="service"><div class="ico"><svg><use href="#i-house"/></svg></div><h3>Instalaciones y reformas</h3><p>Instalación nueva o renovación completa de vivienda y local: cableado, mecanismos, circuitos y puesta a tierra.</p><div class="ref">ITC-BT-25 · viviendas</div><a href="#contacto" class="svc-cta" data-tipo="Reforma o instalación nueva">Pedir presupuesto →</a></article>
+        <article class="service"><div class="ico"><svg><use href="#i-led"/></svg></div><h3>Iluminación LED</h3><p>Perfiles de aluminio empotrados en pladur, tiras LED, downlights y encendido por zonas para salones, cocinas y comercios.</p><div class="ref">ITC-BT-44 · alumbrado</div><a href="#contacto" class="svc-cta" data-tipo="Iluminación LED">Pedir presupuesto →</a></article>
+        <article class="service"><div class="ico"><svg><use href="#i-doc"/></svg></div><h3>Boletines y certificados</h3><p>Certificado de Instalación Eléctrica (CIE) para alta de suministro, aumento de potencia o cambio de titular.</p><div class="ref">RD 842/2002</div><a href="#contacto" class="svc-cta" data-tipo="Boletín / certificado">Pedir presupuesto →</a></article>
+        <article class="service"><div class="ico"><svg><use href="#i-panel"/></svg></div><h3>Cuadros y averías</h3><p>Cuadros nuevos, diferenciales que saltan, cortocircuitos y revisión de instalaciones antiguas.</p><div class="ref">ITC-BT-17 · mando y protección</div><a href="#contacto" class="svc-cta" data-tipo="Avería">Pedir presupuesto →</a></article>
+        <article class="service"><div class="ico"><svg><use href="#i-ev"/></svg></div><h3>Recarga de coche eléctrico</h3><p>Puntos de recarga en garaje particular o comunitario, con su circuito independiente y protecciones.</p><div class="ref">ITC-BT-52</div><a href="#contacto" class="svc-cta" data-tipo="Punto de recarga">Pedir presupuesto →</a></article>
+        <article class="service"><div class="ico"><svg><use href="#i-net"/></svg></div><h3>Domótica y redes</h3><p>Persianas, luces y clima automatizados, cableado de red y videoporteros.</p><div class="ref">ITC-BT-51 · automatización</div><a href="#contacto" class="svc-cta" data-tipo="Domótica / redes">Pedir presupuesto →</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block dark" id="trabajos">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow">Obra terminada</div>
+          <h2>Trabajos</h2>
+        </div>
+        <div class="filters" id="work-filters" role="group" aria-label="Filtrar trabajos"></div>
+      </div>
+      <div class="works" id="works"></div>
+    </div>
+  </section>
+
+  <section class="block" id="proceso">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow">Cómo trabajamos</div>
+          <h2>De la llamada al boletín</h2>
+        </div>
+        <p>Así es cada encargo, sea una avería o una reforma entera.</p>
+      </div>
+      <ol class="steps">
+        <li><span class="n">1</span><h3>Nos cuentas</h3><p>Por teléfono, WhatsApp o el formulario. Si puedes, manda fotos del cuadro o de la zona.</p></li>
+        <li><span class="n">2</span><h3>Visita y medición</h3><p>Vamos a verlo, medimos y revisamos el estado de la instalación existente.</p></li>
+        <li><span class="n">3</span><h3>Presupuesto cerrado</h3><p>Te lo enviamos por escrito, partida a partida, con el IVA que corresponde.</p></li>
+        <li><span class="n">4</span><h3>Obra y legalización</h3><p>Ejecutamos, probamos y, si hace falta, emitimos el CIE para la distribuidora.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block alt" id="nosotros">
+    <div class="wrap about">
+      <div>
+        <div class="eyebrow">Quiénes somos</div>
+        <h2>Dos socios, una firma</h2>
+        <p class="about-p">JUNSAN, CB es una comunidad de bienes formada por Pablo Junco e Iván Sánchez: de sus apellidos sale el nombre. Al ser dos, el que te da el presupuesto es el que luego hace la obra.</p>
+        <div class="team">
+          <div class="member"><span class="ini">PJ</span><div><b>Pablo Junco</b><span>Socio</span></div></div>
+          <div class="member"><span class="ini">IS</span><div><b>Iván Sánchez</b><span>Socio</span></div></div>
+        </div>
+      </div>
+      <div>
+        <div class="eyebrow">Dónde trabajamos</div>
+        <h3 class="zone-title" data-pub="zona">Albacete y provincia</h3>
+        <ul class="towns">
+          <li class="main-town">Albacete</li><li>Hellín</li><li>Villarrobledo</li><li>Almansa</li><li>La Roda</li><li>Caudete</li><li>Tobarra</li><li>Madrigueras</li><li>Chinchilla</li><li>Tarazona de la Mancha</li><li>Casas-Ibáñez</li><li>La Gineta</li>
+        </ul>
+        <p class="hint">¿Tu pueblo no aparece? Pregúntanos igualmente.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="dudas">
+    <div class="wrap faq-wrap">
+      <div>
+        <div class="eyebrow">Preguntas frecuentes</div>
+        <h2>Dudas habituales</h2>
+      </div>
+      <div class="faq">
+        <details><summary>¿Qué es el boletín y cuándo lo necesito?</summary><p>Es el Certificado de Instalación Eléctrica (CIE). Lo firma un instalador habilitado y la distribuidora lo pide para dar de alta un suministro nuevo, para ciertos aumentos de potencia o cuando la instalación ha cambiado. Te decimos si tu caso lo requiere al ver la instalación.</p></details>
+        <details><summary>¿Puedo pagar el 10 % de IVA en vez del 21 %?</summary><p>En reformas de vivienda particular, sí, si la vivienda tiene más de dos años, es para uso particular y los materiales que aportamos no superan el 40 % de la base. Lo indicamos en el presupuesto cuando aplica.</p></details>
+        <details><summary>¿Me dais el presupuesto sin compromiso?</summary><p>Sí. Lo hacemos por escrito y desglosado, y no empezamos nada hasta que lo aceptas.</p></details>
+        <details><summary>¿Trabajáis para constructoras y otras empresas?</summary><p>Sí. En obra nueva o rehabilitación como subcontrata aplicamos la inversión del sujeto pasivo cuando corresponde.</p></details>
+        <details><summary>¿Cómo os mando fotos de la instalación?</summary><p>Por WhatsApp es lo más rápido. Una foto del cuadro con la tapa abierta y otra de la zona a reformar nos ayudan a afinar el presupuesto.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="block alt" id="contacto">
+    <div class="wrap contact">
+      <div class="contact-info">
+        <div>
+          <div class="eyebrow">Hablemos</div>
+          <h2>Contacto</h2>
+          <p class="about-p">Cuéntanos qué necesitas y te llamamos para verlo.</p>
+        </div>
+        <div class="cinfo"><div class="k">Teléfono y WhatsApp</div><div class="v" id="c-tel"></div><div class="v" id="c-tel2"></div></div>
+        <div class="cinfo"><div class="k">Correo</div><div class="v" id="c-email"></div></div>
+        <div class="cinfo"><div class="k">Oficina</div><div class="v small" id="c-dir"></div></div>
+        <div class="cinfo"><div class="k">Horario</div><div class="v small" id="c-horario"></div></div>
+      </div>
+      <div class="form-card">
+        <form class="grid" id="contact-form" novalidate>
+          <div class="field full"><span class="flabel">¿Qué necesitas?</span>
+            <div class="tipo-chips" id="cf-tipos" role="radiogroup" aria-label="Tipo de trabajo"></div></div>
+          <div class="field"><label for="cf-nombre">Nombre</label><input id="cf-nombre" required autocomplete="name"></div>
+          <div class="field"><label for="cf-tel">Teléfono</label><input id="cf-tel" type="tel" required autocomplete="tel" inputmode="tel"></div>
+          <div class="field"><label for="cf-email">Correo (opcional)</label><input id="cf-email" type="email" autocomplete="email"></div>
+          <div class="field"><label for="cf-loc">Localidad</label><input id="cf-loc" autocomplete="address-level2" placeholder="Albacete"></div>
+          <div class="field full"><label for="cf-msg">Descripción</label><textarea id="cf-msg" required placeholder="Ejemplo: piso de 90 m², reforma de cocina y salón, quiero perfiles LED en el techo."></textarea></div>
+          <label class="check full"><input type="checkbox" id="cf-rgpd" required><span>Acepto que JUNSAN, CB use estos datos solo para responder a mi consulta. <a href="#privacidad" class="lnk">Política de privacidad</a></span></label>
+          <div class="full form-actions"><button class="btn btn-accent btn-lg" type="submit" id="cf-send">Enviar consulta</button></div>
+          <div class="full" id="cf-result" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot-brand">
+        <a class="logo" href="#inicio" aria-label="JUNSAN Pro Electric"><span class="plate dark-plate"><span>JUN<svg class="bolt"><use href="#i-bolt"/></svg>AN</span></span><span class="sub">PRO ELECTRIC</span></a>
+        <small>Instalaciones eléctricas en <span data-pub="zona">Albacete y provincia</span></small>
+      </div>
+      <div class="foot-legal">
+        <small><span data-pub="razon">JUNSAN, CB</span> · NIF <span data-pub="nif">E26621060</span></small>
+        <small data-pub="direccion">C/ Segovia, 43, planta baja, 02002 Albacete</small>
+        <small><a href="#aviso-legal">Aviso legal</a> · <a href="#privacidad">Privacidad</a> · <a href="#socios">Área socios</a></small>
+      </div>
+    </div>
+  </footer>
+
+  <a class="fab" id="fab" href="#contacto" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg aria-hidden="true"><use href="#i-wa"/></svg></a>
+</div>
+
+<div id="view-legal" hidden><header class="top"><div class="wrap"><a class="logo" href="#inicio" aria-label="Volver a la web"><span class="plate"><span>JUN<svg class="bolt"><use href="#i-bolt"/></svg>AN</span></span><span class="sub">PRO ELECTRIC</span></a><a href="#inicio" class="btn btn-ghost btn-sm">← Volver a la web</a></div></header><div class="wrap legal" id="legal-body" style="padding-block:40px 70px"></div></div>
+
+<!-- ================= ÁREA SOCIOS ================= -->
+<div id="view-admin" class="admin" hidden>
+  <div class="admin-top">
+    <div class="wrap">
+      <a class="logo" href="#" aria-label="Volver a la web"><span class="plate" style="background:#000"><span>JUN<svg class="bolt" style="color:#fff"><use href="#i-bolt"/></svg>AN</span></span><span class="sub">ÁREA SOCIOS</span></a>
+      <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap"><span class="who" id="who"></span><button class="btn btn-sm btn-ghost" id="logout" hidden style="color:#fff;border-color:#555">Salir</button><a class="back" href="#inicio">← Ver la web</a></div>
+    </div>
+  </div>
+  <div id="admin-gate" class="wrap"></div>
+  <div id="admin-app" hidden>
+    <div class="tabs-wrap"><div class="wrap"><div class="tabs" role="tablist" id="tabs"></div></div></div>
+    <div class="wrap panel" id="panel"></div>
+  </div>
+</div>
+
+<div id="modal-root"></div>
+<div id="toast" class="toast" hidden role="status"></div>
+
+<script>
+(function(){
+"use strict";
+const FOTO = document.querySelector('.hero-photo img').src;
+const $ = (s,r=document)=>r.querySelector(s);
+const esc = s => String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const eur = new Intl.NumberFormat('es-ES',{style:'currency',currency:'EUR'});
+const money = n => eur.format(+n||0);
+const r2 = n => Math.round((+n||0)*100)/100;
+const todayISO = () => { const d=new Date(); return new Date(d.getTime()-d.getTimezoneOffset()*60000).toISOString().slice(0,10); };
+const addDays = (iso,n) => { const d=new Date(iso+'T12:00:00'); d.setDate(d.getDate()+n); return d.toISOString().slice(0,10); };
+const fdate = iso => iso ? new Date(iso+'T12:00:00').toLocaleDateString('es-ES',{day:'2-digit',month:'2-digit',year:'numeric'}) : '';
+let toastT; function toast(msg){ const t=$('#toast'); t.textContent=msg; t.hidden=false; clearTimeout(toastT); toastT=setTimeout(()=>t.hidden=true,2600); }
+async function copyText(text, btn){ try{ await navigator.clipboard.writeText(text); toast('Copiado'); }catch(e){ const r=document.createRange(); const n=btn&&btn.previousSibling; if(n){r.selectNodeContents(n.parentNode);const s=getSelection();s.removeAllRanges();s.addRange(r);} toast('Selecciona y copia el texto'); } }
+
+/* ---------- Estado ---------- */
+const DEFAULT_PUB = { razon:'JUNSAN, CB', nif:'E26621060', direccion:'C/ Segovia, 43, planta baja', cp:'02002', ciudad:'Albacete', tel:'670 80 16 37', tel2:'661 96 73 10', email:'junsanproelectric@gmail.com', zona:'Albacete y provincia', horario:'Lunes a viernes, 8:00–19:00', socios:'Pablo Junco e Iván Sánchez' };
+const S = { pub:{...DEFAULT_PUB}, priv:{ iban:'', socios:'', pie:'', diasVence:30, validez:30 },
+  trabajos:null, clientes:[], docs:[], mensajes:[], workFilter:'Todos', tab:'resumen', docFilter:'todos', q:'' };
+/* ---------- Capa de datos: Supabase (web publicada) o almacén de Claude (artefacto) ---------- */
+const rowsOf = rows => (rows||[]).map(r=>({id:r.id,...r.data}));
+function makeSupabase(cfg){
+  const sb = window.supabase.createClient(cfg.url, cfg.key, {auth:{persistSession:true,autoRefreshToken:true}});
+  const A = { mode:'sb', needsLogin:true, canUpload:true, canDownload:true, socio:false, email:'' };
+  let H = {};
+  async function q(t){ const {data,error}=await sb.from(t).select('id,data'); if(error) throw error; return data; }
+  A.loadPublic = async()=>{
+    try{ const [aj,tr]=await Promise.all([q('ajustes'),q('trabajos')]);
+      const p=aj.find(r=>r.id==='publico'); if(p) H.pub&&H.pub(p.data);
+      H.trabajos&&H.trabajos(rowsOf(tr));
+    }catch(e){ H.trabajos&&H.trabajos(null); }
+  };
+  A.refresh = async()=>{
+    if(!A.socio){ return A.loadPublic(); }
+    const [aj,tr,cl,dc,ms]=await Promise.all(['ajustes','trabajos','clientes','documentos','mensajes'].map(q));
+    const p=aj.find(r=>r.id==='publico'), v=aj.find(r=>r.id==='privado');
+    if(p) H.pub(p.data); if(v) H.priv(v.data);
+    H.trabajos(rowsOf(tr)); H.clientes(rowsOf(cl)); H.docs(rowsOf(dc)); H.mensajes(rowsOf(ms));
+    H.changed();
+  };
+  async function checkSocio(){
+    const {data:{session}} = await sb.auth.getSession();
+    A.email = session?.user?.email || '';
+    if(!session){ A.socio=false; return; }
+    const {data} = await sb.rpc('is_socio'); A.socio = !!data;
+  }
+  A.start = async(handlers)=>{
+    H=handlers; await A.loadPublic();
+    try{ await checkSocio(); }catch(e){}
+    H.auth(); if(A.socio) await A.refresh().catch(()=>{});
+    window.addEventListener('focus',()=>{ if(A.socio && !document.querySelector('#modal-root').innerHTML) A.refresh().catch(()=>{}); });
+  };
+  A.login = async(email,pw)=>{ const {error}=await sb.auth.signInWithPassword({email,password:pw}); if(error) throw error; await checkSocio(); H.auth(); if(A.socio) await A.refresh(); return A.socio; };
+  A.logout = async()=>{ await sb.auth.signOut(); A.socio=false; A.email=''; H.clear(); H.auth(); };
+  A.changePassword = async(pw)=>{ const {error}=await sb.auth.updateUser({password:pw}); if(error) throw error; };
+  A.save = async(col,id,body)=>{
+    if(id){ const {error}=await sb.from(col).upsert({id,data:body}); if(error) throw error; A.refresh().catch(()=>{}); return id; }
+    const {data,error}=await sb.from(col).insert({data:body}).select('id').single(); if(error) throw error; A.refresh().catch(()=>{}); return data.id;
+  };
+  A.patch = async(col,id,fields)=>{ const cur = col==='documentos'?S.docs.find(d=>d.id===id):null; const base={...(cur||{})}; delete base.id; return A.save(col,id,{...base,...fields}); };
+  A.remove = async(col,id)=>{ const {error}=await sb.from(col).delete().eq('id',id); if(error) throw error; A.refresh().catch(()=>{}); };
+  A.saveAjustes = async(pub,priv)=>{ const {error}=await sb.from('ajustes').upsert([{id:'publico',data:pub},{id:'privado',data:priv}]); if(error) throw error; A.refresh().catch(()=>{}); };
+  A.sendMessage = async(f)=>{ const {error}=await sb.from('mensajes').insert({data:{...f,estado:'nuevo',fecha:new Date().toISOString()}}); if(error) throw error; };
+  A.msgUpdate = async(m,estado)=>{ const b={...m}; delete b.id; b.estado=estado; return A.save('mensajes',m.id,b); };
+  A.msgDelete = async(m)=>A.remove('mensajes',m.id);
+  A.upload = async(file)=>{
+    const ext=(file.name.split('.').pop()||'jpg').toLowerCase().replace(/[^a-z0-9]/g,'');
+    const path=`trabajos/${Date.now()}-${Math.random().toString(36).slice(2,8)}.${ext}`;
+    const {error}=await sb.storage.from('fotos').upload(path,file,{contentType:file.type,upsert:false}); if(error) throw error;
+    return sb.storage.from('fotos').getPublicUrl(path).data.publicUrl;
+  };
+  A.download = async(blob,name)=>{ const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download=name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(url),4000); };
+  return A;
+}
+
+function makeClaude(){
+  const A = { mode:'claude', needsLogin:false, canUpload:false, canDownload:false, socio:false, email:'' };
+  let db=null, user=null, assets=null, downloads=null, myId=null, canWrite=null, H={};
+  A.start = async(handlers)=>{
+    H=handlers;
+    const wcl=window.claude;
+    if(!wcl||!wcl.use){ H.trabajos(null); H.auth(); return; }
+    wcl.use('downloads').then(x=>{downloads=x; A.canDownload=!!x;});
+    wcl.use('assets').then(x=>{assets=x; A.canUpload=!!x;});
+    const [d,u]=await Promise.all([wcl.use('db'),wcl.use('user')]); db=d; user=u;
+    if(user){ try{ A.socio=!!(await user.canEdit()); }catch(e){} try{ canWrite=await user.can('data.write'); }catch(e){} try{ myId=await user.id(); const me=await user.me(); if(me&&me.name) A.email=me.name; }catch(e){} }
+    H.auth();
+    if(!db){ H.trabajos(null); return; }
+    const tm=setTimeout(()=>H.trabajos(null),10000);
+    db.doc('publico/empresa').onSnapshot(s=>{ if(s.exists){ H.pub(s.data()); H.changed(); } },()=>{});
+    db.collection('trabajos').onSnapshot(s=>{ clearTimeout(tm); H.trabajos(s.docs.map(x=>({id:x.id,...x.data()}))); H.changed(); },()=>{});
+    if(A.socio){
+      db.doc('privado/empresa').onSnapshot(s=>{ if(s.exists) H.priv(s.data()); },()=>{});
+      db.collection('clientes').onSnapshot(s=>{ H.clientes(s.docs.map(x=>({id:x.id,...x.data()}))); H.changed(); },()=>{});
+      db.collection('documentos').onSnapshot(s=>{ H.docs(s.docs.map(x=>({id:x.id,...x.data()}))); H.changed(); },()=>{});
+      db.collection('mensajes').onSnapshot(s=>{ const out=[]; s.docs.forEach(x=>{ (x.data().items||[]).forEach(it=>out.push({...it,id:x.id+'~'+it.k,_doc:x.id})); }); H.mensajes(out); H.changed(); },()=>{});
+    }
+  };
+  A.save = async(col,id,body)=>{ const ref=id?db.collection(col).doc(id):db.collection(col).doc(); await ref.set(body); return ref.path.split('/').pop(); };
+  A.patch = async(col,id,fields)=>db.collection(col).doc(id).update(fields);
+  A.remove = async(col,id)=>db.collection(col).doc(id).delete();
+  A.saveAjustes = async(pub,priv)=>{ await db.doc('publico/empresa').set(pub); await db.doc('privado/empresa').set(priv); };
+  A.sendMessage = async(f)=>{
+    if(!db||!myId||canWrite===false) throw new Error('sin permiso');
+    const ref=db.doc('mensajes/'+myId); const cur=await ref.get(); const items=(cur.exists&&Array.isArray(cur.data().items))?[...cur.data().items]:[];
+    items.push({...f,k:Date.now().toString(36),estado:'nuevo',fecha:new Date().toISOString()}); await ref.set({items:items.slice(-50)});
+  };
+  async function msgEdit(m,fn){ const items=S.mensajes.filter(x=>x._doc===m._doc).map(({id,_doc,...it})=>it); const next=fn(items); const ref=db.doc('mensajes/'+m._doc); if(next.length) await ref.set({items:next}); else await ref.delete(); }
+  A.msgUpdate = (m,estado)=>msgEdit(m,items=>items.map(it=>it.k===m.k?{...it,estado}:it));
+  A.msgDelete = m=>msgEdit(m,items=>items.filter(it=>it.k!==m.k));
+  A.upload = async(file)=>{ const r=await assets.upload(file); return r.url; };
+  A.download = async(blob,name)=>{ try{ await downloads.save({filename:name,data:blob}); }catch(e){ if(e&&e.code!=='declined'&&e.code!=='cancelled') throw e; } };
+  A.login=A.logout=A.changePassword=async()=>{};
+  return A;
+}
+const A = (window.JUNSAN_SB && window.supabase) ? makeSupabase(window.JUNSAN_SB) : makeClaude();
+
+let adminReady=false;
+
+/* ---------- Web pública ---------- */
+function renderPub(){
+  const p=S.pub;
+  document.querySelectorAll('[data-pub]').forEach(el=>{ const k=el.dataset.pub; const v = k==='direccion' ? [p.direccion,[p.cp,p.ciudad].filter(Boolean).join(' ')].filter(Boolean).join(', ') : p[k]; if(v) el.textContent=v; });
+  const digits=t=>String(t||'').replace(/\D/g,'');
+  const waUrl=(t,msg)=>`https://wa.me/34${digits(t)}${msg?'?text='+encodeURIComponent(msg):''}`;
+  const tel=(id,val)=>{ const el=$(id); if(!val){ el.hidden=true; return; } el.hidden=false; el.innerHTML=`<a href="tel:+34${digits(val)}" class="mono">${esc(val)}</a><a class="wa" href="${waUrl(val,'Hola JUNSAN, quería pedir presupuesto.')}" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a><button type="button" class="copy">Copiar</button>`; el.querySelector('.copy').onclick=e=>copyText(val,e.currentTarget); };
+  tel('#c-tel',p.tel); tel('#c-tel2',p.tel2);
+  const em=$('#c-email'); if(p.email){ em.innerHTML=`<a href="mailto:${esc(p.email)}">${esc(p.email)}</a><button type="button" class="copy">Copiar</button>`; em.querySelector('.copy').onclick=e=>copyText(p.email,e.currentTarget);} else em.textContent='—';
+  $('#c-dir').textContent=[p.direccion,[p.cp,p.ciudad].filter(Boolean).join(' ')].filter(Boolean).join(', ')||'—';
+  $('#c-horario').textContent=p.horario||'—';
+  const main=p.tel||p.tel2; const wl=main?waUrl(main,'Hola JUNSAN, quería pedir presupuesto.'):'#contacto';
+  ['#hero-wa','#fab'].forEach(id=>{ const a=$(id); a.href=wl; if(!main){a.removeAttribute('target');} });
+  S._wa=main?(msg=>waUrl(main,msg)):null;
+}
+const CATS=['Reformas','Iluminación','Cuadros','Recarga VE','Domótica','Otros'];
+function renderWorks(){
+  let list = S.trabajos;
+  if(list===null) list=[{id:'_hero',titulo:'Perfil LED empotrado en salón',categoria:'Iluminación',localidad:'Albacete',descripcion:'Reforma integral con perfil de aluminio empotrado en techo de pladur y ventanal.',fotoUrl:FOTO,visible:true}];
+  list = list.filter(w=>w.visible!==false);
+  const cats=['Todos',...CATS.filter(c=>list.some(w=>w.categoria===c))];
+  if(!cats.includes(S.workFilter)) S.workFilter='Todos';
+  $('#work-filters').innerHTML = cats.length>2 ? cats.map(c=>`<button type="button" class="chip" aria-pressed="${c===S.workFilter}" data-c="${esc(c)}">${esc(c)}</button>`).join('') : '';
+  $('#work-filters').querySelectorAll('.chip').forEach(b=>b.onclick=()=>{S.workFilter=b.dataset.c;renderWorks();});
+  const shown = list.filter(w=>S.workFilter==='Todos'||w.categoria===S.workFilter);
+  $('#works').innerHTML = shown.length ? shown.map(workCard).join('') : `<div class="empty" style="grid-column:1/-1">Todavía no hay trabajos publicados. Los socios pueden añadirlos desde su área.</div>`;
+}
+function workCard(w){
+  const img = w.fotoUrl ? `<img src="${esc(w.fotoUrl)}" alt="${esc(w.titulo)}" loading="lazy">` : `<div class="noimg"><svg><use href="#i-led"/></svg></div>`;
+  return `<article class="work"><div class="ph">${img}<span class="cat">${esc(w.categoria||'Obra')}</span></div><div class="body"><h3>${esc(w.titulo)} ${w.ejemplo?'<span class="example">Ejemplo</span>':''}</h3><div class="meta">${esc([w.localidad,w.fecha?fdate(w.fecha):''].filter(Boolean).join(' · '))}</div>${w.descripcion?`<p>${esc(w.descripcion)}</p>`:''}</div></article>`;
+}
+
+const TIPOS=['Reforma o instalación nueva','Iluminación LED','Boletín / certificado','Avería','Punto de recarga','Domótica / redes','Otro'];
+S.cfTipo=TIPOS[0];
+function drawTipos(){ $('#cf-tipos').innerHTML=TIPOS.map(t=>`<button type="button" class="chip" role="radio" aria-checked="${t===S.cfTipo}" data-t="${esc(t)}">${esc(t)}</button>`).join(''); $('#cf-tipos').querySelectorAll('.chip').forEach(b=>b.onclick=()=>{S.cfTipo=b.dataset.t;drawTipos();}); }
+drawTipos();
+document.querySelectorAll('.svc-cta').forEach(a=>a.addEventListener('click',()=>{ S.cfTipo=a.dataset.tipo; drawTipos(); setTimeout(()=>$('#cf-nombre').focus({preventScroll:true}),400); }));
+$('#contact-form').addEventListener('submit', async e=>{
+  e.preventDefault();
+  const f={nombre:$('#cf-nombre').value.trim(),tel:$('#cf-tel').value.trim(),email:$('#cf-email').value.trim(),localidad:$('#cf-loc').value.trim(),tipo:S.cfTipo,mensaje:$('#cf-msg').value.trim()};
+  const out=$('#cf-result');
+  if(!f.nombre||!f.tel||!f.mensaje){ out.innerHTML='<div class="notice bad">Falta el nombre, el teléfono o la descripción. Rellénalos para poder enviarlo.</div>'; return; }
+  if(!$('#cf-rgpd').checked){ out.innerHTML='<div class="notice bad">Marca la casilla de privacidad para enviar la consulta.</div>'; return; }
+  const txt=`Hola JUNSAN, soy ${f.nombre} (${f.tel})${f.localidad?' de '+f.localidad:''}. ${f.tipo}: ${f.mensaje}`;
+  const btn=$('#cf-send'); btn.disabled=true; btn.textContent='Enviando…';
+  try{ await A.sendMessage(f);
+    out.innerHTML=`<div class="notice ok">Consulta recibida. Te llamamos lo antes posible.${S._wa?` Si tienes fotos, <a class="lnk" href="${S._wa(txt)}" target="_blank" rel="noopener">mándalas por WhatsApp</a>.`:''}</div>`; e.target.reset(); S.cfTipo=TIPOS[0]; drawTipos();
+  }catch(err){
+    out.innerHTML=`<div class="notice warn">No hemos podido guardar la consulta desde aquí. Envíanosla por WhatsApp con el mensaje ya escrito:<div style="margin:8px 0;padding:8px;background:var(--surface);border-radius:4px;color:var(--ink)">${esc(txt)}</div><div style="display:flex;gap:8px;flex-wrap:wrap">${S._wa?`<a class="btn btn-sm btn-plate" href="${S._wa(txt)}" target="_blank" rel="noopener">Abrir WhatsApp</a>`:''}<button type="button" class="btn btn-sm btn-ghost" id="cf-copy">Copiar mensaje</button></div></div>`;
+    $('#cf-copy').onclick=ev=>copyText(txt,ev.currentTarget);
+  }finally{ btn.disabled=false; btn.textContent='Enviar consulta'; }
+});
+
+/* ---------- Páginas legales ---------- */
+function legalHTML(which){
+  const p=S.pub, dir=[p.direccion,[p.cp,p.ciudad].filter(Boolean).join(' ')].filter(Boolean).join(', ');
+  const id=`<p><b>${esc(p.razon)}</b> · NIF ${esc(p.nif||'—')} · ${esc(dir)} · ${esc(p.email||'')}${p.tel?' · '+esc(p.tel):''}</p>`;
+  if(which==='aviso-legal') return `<div class="eyebrow">Información legal</div><h2>Aviso legal</h2>
+  <h3>Titular del sitio web</h3><p>En cumplimiento del artículo 10 de la Ley 34/2002 (LSSI-CE), estos son los datos del titular:</p>${id}<p>Comunidad de bienes formada por ${esc(p.socios||'sus socios')}.</p>
+  <h3>Objeto</h3><p>Esta web informa de los servicios de instalaciones eléctricas de JUNSAN y permite solicitar presupuesto. La información de precios, si la hubiera, es orientativa y no constituye oferta vinculante hasta la aceptación de un presupuesto escrito.</p>
+  <h3>Propiedad intelectual</h3><p>Los textos, fotografías y el logotipo JUNSAN Pro Electric pertenecen a su titular. No se permite su reproducción sin autorización.</p>
+  <h3>Responsabilidad</h3><p>El titular no se hace responsable del mal uso de los contenidos ni de los daños derivados de interrupciones del servicio ajenas a su control.</p>
+  <h3>Legislación aplicable</h3><p>Se aplica la legislación española. Para cualquier controversia, las partes se someten a los juzgados y tribunales de Albacete, salvo que la normativa de consumidores disponga otro fuero.</p>`;
+  return `<div class="eyebrow">Información legal</div><h2>Privacidad</h2>
+  <h3>Responsable del tratamiento</h3>${id}
+  <h3>Qué datos tratamos y para qué</h3><p>Los que nos envías en el formulario de contacto o por WhatsApp (nombre, teléfono, correo, localidad y la descripción del trabajo) para responder a tu consulta y, si lo aceptas, preparar y gestionar el presupuesto y la factura.</p>
+  <h3>Base legal</h3><p>Tu consentimiento al enviar la consulta (art. 6.1.a RGPD) y, si nos contratas, la ejecución del contrato y las obligaciones fiscales (art. 6.1.b y 6.1.c RGPD).</p>
+  <h3>Conservación</h3><p>Las consultas que no terminan en encargo se borran como máximo a los 12 meses. Los datos de facturación se guardan el tiempo que exige la normativa fiscal y mercantil.</p>
+  <h3>Destinatarios</h3><p>No cedemos tus datos a terceros salvo obligación legal. Los datos se alojan en proveedores tecnológicos con servidores en la Unión Europea.</p>
+  <h3>Tus derechos</h3><p>Puedes pedir acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo a ${esc(p.email||'nuestro correo')}. Si no quedas conforme, puedes reclamar ante la Agencia Española de Protección de Datos (aepd.es).</p>
+  <h3>Cookies</h3><p>Esta web no usa cookies de publicidad ni de analítica. Solo guarda en tu navegador lo imprescindible para mantener la sesión del área de socios.</p>`;
+}
+
+/* ---------- Routing ---------- */
+function route(){
+  const h=location.hash, admin=h==='#socios', legal=h==='#aviso-legal'||h==='#privacidad';
+  $('#view-public').hidden=admin||legal; $('#view-admin').hidden=!admin; $('#view-legal').hidden=!legal;
+  if(admin){ window.scrollTo(0,0); renderAdmin(); }
+  else if(legal){ $('#legal-body').innerHTML=legalHTML(h.slice(1)); window.scrollTo(0,0); }
+  else if(!h||h==='#inicio'){ /* portada */ }
+}
+window.addEventListener('hashchange',route);
+
+/* ---------- Cálculos ---------- */
+function calc(d){
+  const base=r2((d.lineas||[]).reduce((s,l)=>s+r2((+l.q||0)*(+l.p||0)*(1-(+l.d||0)/100)),0));
+  const ivaPct = d.iva==='ISP'?0:(+d.iva||0);
+  const cuotaIva=r2(base*ivaPct/100), cuotaIrpf=r2(base*(+d.irpf||0)/100);
+  return {base,cuotaIva,cuotaIrpf,total:r2(base+cuotaIva-cuotaIrpf)};
+}
+function estadoReal(d){ if(d.tipo==='factura'&&d.estado==='emitida'&&d.vence&&d.vence<todayISO()) return 'vencida'; return d.estado; }
+function nextNumero(tipo, fecha){
+  const y=(fecha||todayISO()).slice(0,4), serie = tipo==='factura'?'F':'P';
+  const max = S.docs.filter(d=>d.tipo===tipo && d.anio===y).reduce((m,d)=>Math.max(m,+d.num||0),0);
+  return {serie, anio:y, num:max+1, numero:`${serie}-${y}-${String(max+1).padStart(4,'0')}`};
+}
+const ESTADOS={presupuesto:['borrador','enviado','aceptado','rechazado'],factura:['emitida','pagada']};
+const IVAS=[['21','21 %'],['10','10 % (reforma de vivienda)'],['4','4 %'],['0','Exento'],['ISP','Inversión sujeto pasivo']];
+const ISP_TXT='Operación con inversión del sujeto pasivo conforme al art. 84.Uno.2º f) de la Ley 37/1992 del IVA.';
+
+/* ---------- Área socios ---------- */
+const TABS=[['resumen','Resumen'],['presupuestos','Presupuestos'],['facturas','Facturas'],['clientes','Clientes'],['mensajes','Mensajes'],['trabajos','Trabajos web'],['ajustes','Ajustes']];
+function renderAdmin(){
+  const gate=$('#admin-gate'), app=$('#admin-app');
+  $('#logout').hidden=!(A.needsLogin&&A.email); $('#who').textContent=A.email||'';
+  if(!A.socio){
+    app.hidden=true; gate.hidden=false;
+    if(!adminReady){ gate.innerHTML=`<div class="gate"><p style="color:var(--muted)">Comprobando acceso…</p></div>`; return; }
+    if(A.needsLogin && !A.email){
+      gate.innerHTML=`<div class="login"><svg width="40" height="64"><use href="#i-bolt"/></svg><h2>Área de socios</h2><p class="hint" style="margin:0">Entra con el correo y la contraseña de tu cuenta de socio.</p>
+      <form id="lg"><div class="field"><label for="lg-e">Correo</label><input id="lg-e" type="email" autocomplete="username" required></div><div class="field"><label for="lg-p">Contraseña</label><input id="lg-p" type="password" autocomplete="current-password" required></div><button class="btn btn-accent btn-lg" id="lg-b">Entrar</button><div id="lg-m" aria-live="polite"></div></form></div>`;
+      $('#lg').onsubmit=async e=>{ e.preventDefault(); const b=$('#lg-b'); b.disabled=true; b.textContent='Entrando…';
+        try{ const ok=await A.login($('#lg-e').value.trim(),$('#lg-p').value); if(!ok) $('#lg-m').innerHTML='<div class="notice bad">Esta cuenta no tiene acceso al área de socios.</div>'; }
+        catch(err){ $('#lg-m').innerHTML='<div class="notice bad">Correo o contraseña incorrectos. Revísalos y vuelve a probar.</div>'; }
+        finally{ b.disabled=false; b.textContent='Entrar'; } };
+      return;
+    }
+    gate.innerHTML=`<div class="gate"><svg width="48" height="76"><use href="#i-bolt"/></svg><h2 style="font-size:2.2rem;text-transform:uppercase">Solo socios</h2><p style="color:var(--muted)">${A.needsLogin?'Esta cuenta no tiene acceso. Sal y entra con una cuenta de socio.':'Esta zona es para los socios de JUNSAN, CB. Si eres socio, pide al propietario de la página que te dé acceso como Editor.'}</p><a href="#inicio" class="btn btn-ghost">Volver a la web</a></div>`;
+    return;
+  }
+  gate.hidden=true; app.hidden=false;
+  const cnt={presupuestos:S.docs.filter(d=>d.tipo==='presupuesto'&&['borrador','enviado'].includes(d.estado)).length, facturas:S.docs.filter(d=>d.tipo==='factura'&&estadoReal(d)!=='pagada').length, mensajes:S.mensajes.filter(m=>m.estado!=='atendido').length};
+  $('#tabs').innerHTML=TABS.map(([k,l])=>`<button role="tab" aria-selected="${S.tab===k}" data-t="${k}">${l}${cnt[k]?`<span class="count">${cnt[k]}</span>`:''}</button>`).join('');
+  $('#tabs').querySelectorAll('button').forEach(b=>b.onclick=()=>{S.tab=b.dataset.t;S.docFilter='todos';S.q='';renderAdmin();});
+  const P=$('#panel');
+  ({resumen:panelResumen,presupuestos:()=>panelDocs('presupuesto'),facturas:()=>panelDocs('factura'),clientes:panelClientes,mensajes:panelMensajes,trabajos:panelTrabajos,ajustes:panelAjustes})[S.tab](P);
+}
+
+function panelResumen(P){
+  const y=todayISO().slice(0,4), m=+todayISO().slice(5,7), q=Math.ceil(m/3);
+  const fac=S.docs.filter(d=>d.tipo==='factura');
+  const facY=fac.filter(d=>d.anio===y);
+  const baseY=facY.reduce((s,d)=>s+(d.base||0),0);
+  const pend=fac.filter(d=>estadoReal(d)!=='pagada');
+  const pendT=pend.reduce((s,d)=>s+(d.total||0),0);
+  const venc=fac.filter(d=>estadoReal(d)==='vencida').length;
+  const facQ=facY.filter(d=>Math.ceil(+d.fecha.slice(5,7)/3)===q);
+  const ivaQ=facQ.reduce((s,d)=>s+(d.cuotaIva||0),0);
+  const pres=S.docs.filter(d=>d.tipo==='presupuesto'&&['borrador','enviado'].includes(d.estado));
+  const presT=pres.reduce((s,d)=>s+(d.total||0),0);
+  const recent=[...S.docs].sort((a,b)=>(b.actualizado||'').localeCompare(a.actualizado||'')).slice(0,6);
+  const msgs=S.mensajes.filter(x=>x.estado!=='atendido').slice(0,5);
+  P.innerHTML=`
+  <div class="kpis">
+    <div class="kpi"><span class="k">Facturado ${y} (base)</span><span class="v">${money(baseY)}</span><span class="s">${facY.length} facturas</span></div>
+    <div class="kpi"><span class="k">Pendiente de cobro</span><span class="v">${money(pendT)}</span><span class="s">${pend.length} facturas${venc?` · <b style="color:var(--bad)">${venc} vencida${venc>1?'s':''}</b>`:''}</span></div>
+    <div class="kpi"><span class="k">IVA repercutido ${q}T ${y}</span><span class="v">${money(ivaQ)}</span><span class="s">Para el modelo 303</span></div>
+    <div class="kpi"><span class="k">Presupuestos abiertos</span><span class="v">${money(presT)}</span><span class="s">${pres.length} sin cerrar</span></div>
+  </div>
+  <div class="toolbar"><div class="left"><button class="btn btn-accent" id="nP">+ Presupuesto</button><button class="btn btn-plate" id="nF">+ Factura</button></div></div>
+  <div class="two">
+    <div class="card"><h3>Últimos documentos</h3><div class="mini-list">${recent.length?recent.map(d=>`<div class="row" data-id="${esc(d.id)}"><span class="l"><span class="mono">${esc(d.numero)}</span> · ${esc(d.cliente?.nombre||'Sin cliente')} ${d.ejemplo?'<span class="example">Ejemplo</span>':''}</span><span style="display:flex;gap:8px;align-items:center"><span class="mono">${money(d.total)}</span>${pill(estadoReal(d))}</span></div>`).join(''):'<p class="hint">Aún no hay presupuestos ni facturas. Crea el primero con los botones de arriba.</p>'}</div></div>
+    <div class="card"><h3>Consultas sin atender</h3><div class="mini-list">${msgs.length?msgs.map(x=>`<div class="row" data-m="${esc(x.id)}"><span class="l">${esc(x.nombre)} · ${esc(x.tipo)}</span><span class="hint">${esc(fdate((x.fecha||'').slice(0,10)))}</span></div>`).join(''):'<p class="hint">No hay consultas pendientes.</p>'}</div></div>
+  </div>`;
+  $('#nP').onclick=()=>openDoc(null,'presupuesto'); $('#nF').onclick=()=>openDoc(null,'factura');
+  P.querySelectorAll('[data-id]').forEach(r=>r.onclick=()=>openDoc(S.docs.find(d=>d.id===r.dataset.id)));
+  P.querySelectorAll('[data-m]').forEach(r=>r.onclick=()=>{S.tab='mensajes';renderAdmin();});
+}
+const pill = s => `<span class="pill p-${esc(s)}">${esc(s.charAt(0).toUpperCase()+s.slice(1))}</span>`;
+
+function panelDocs(tipo){
+  const P=$('#panel');
+  const estados=['todos',...ESTADOS[tipo],...(tipo==='factura'?['vencida']:[])];
+  P.innerHTML=`<div class="toolbar"><div class="left"><div class="filters">${estados.map(e=>`<button class="chip" aria-pressed="${S.docFilter===e}" data-f="${e}">${e[0].toUpperCase()+e.slice(1)}</button>`).join('')}</div></div>
+  <div class="left"><input class="search" id="q" placeholder="Buscar cliente o número" value="${esc(S.q)}" aria-label="Buscar"><button class="btn ${tipo==='factura'?'btn-plate':'btn-accent'}" id="new">+ ${tipo==='factura'?'Factura':'Presupuesto'}</button></div></div>
+  <div id="doclist"></div>`;
+  P.querySelectorAll('[data-f]').forEach(b=>b.onclick=()=>{S.docFilter=b.dataset.f;panelDocs(tipo);});
+  $('#q').oninput=e=>{S.q=e.target.value;drawList();};
+  $('#new').onclick=()=>openDoc(null,tipo);
+  function drawList(){
+    const q=S.q.toLowerCase();
+    const list=S.docs.filter(d=>d.tipo===tipo).filter(d=>S.docFilter==='todos'||estadoReal(d)===S.docFilter).filter(d=>!q||(d.numero+' '+(d.cliente?.nombre||'')).toLowerCase().includes(q)).sort((a,b)=>(b.numero||'').localeCompare(a.numero||''));
+    $('#doclist').innerHTML = list.length ? `<div class="table-box"><table class="list"><thead><tr><th>Número</th><th>Fecha</th><th>Cliente</th><th class="num">Base</th><th class="num">Total</th><th>Estado</th></tr></thead><tbody>${list.map(d=>`<tr data-id="${esc(d.id)}"><td class="mono">${esc(d.numero)}</td><td class="mono">${fdate(d.fecha)}</td><td>${esc(d.cliente?.nombre||'—')} ${d.ejemplo?'<span class="example">Ejemplo</span>':''}</td><td class="num">${money(d.base)}</td><td class="num"><b>${money(d.total)}</b></td><td>${pill(estadoReal(d))}</td></tr>`).join('')}</tbody></table></div>`
+      : `<div class="empty">No hay ${tipo==='factura'?'facturas':'presupuestos'} con este filtro.</div>`;
+    $('#doclist').querySelectorAll('tr[data-id]').forEach(r=>r.onclick=()=>openDoc(S.docs.find(d=>d.id===r.dataset.id)));
+  }
+  drawList();
+}
+
+/* ---------- Editor de documento ---------- */
+function modal(html, narrow){ const root=$('#modal-root'); root.innerHTML=`<div class="overlay"><div class="modal ${narrow?'narrow':''}" role="dialog" aria-modal="true">${html}</div></div>`; const ov=root.firstElementChild; ov.addEventListener('mousedown',e=>{ if(e.target===ov) closeModal(); }); return ov; }
+function closeModal(){ $('#modal-root').innerHTML=''; if(A.socio&&location.hash==='#socios') renderAdmin(); }
+$('#logout').onclick=()=>A.logout();
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&$('#modal-root').innerHTML) closeModal(); });
+
+function openDoc(existing, tipo){
+  const isNew=!existing||!existing.id;
+  const d = existing ? JSON.parse(JSON.stringify(existing)) : (()=>{ const f=todayISO(); const t=tipo; return {tipo:t, ...nextNumero(t,f), fecha:f, vence: t==='factura'?addDays(f,+S.priv.diasVence||30):addDays(f,+S.priv.validez||30), clienteId:'', cliente:{}, lineas:[{c:'',q:1,u:'ud',p:0,d:0}], iva:'21', irpf:0, estado:t==='factura'?'emitida':'borrador', notas:'', formaPago: t==='factura'?'Transferencia bancaria':''}; })();
+  const T=d.tipo, isF=T==='factura';
+  const ov=modal(`
+    <div class="modal-h"><h2>${isF?'Factura':'Presupuesto'} <span class="mono" style="font-style:normal;font-size:1.1rem;font-weight:500">${esc(d.numero)}</span></h2><button class="x" aria-label="Cerrar" id="mx">×</button></div>
+    <div class="modal-b">
+      <div class="grid3">
+        <div class="field"><label for="d-fecha">Fecha</label><input id="d-fecha" type="date" value="${esc(d.fecha)}"></div>
+        <div class="field"><label for="d-vence">${isF?'Vencimiento':'Válido hasta'}</label><input id="d-vence" type="date" value="${esc(d.vence||'')}"></div>
+        <div class="field"><label for="d-estado">Estado</label><select id="d-estado">${ESTADOS[T].map(e=>`<option value="${e}" ${d.estado===e?'selected':''}>${e[0].toUpperCase()+e.slice(1)}</option>`).join('')}</select></div>
+        <div class="field"><label for="d-numero">Número</label><input id="d-numero" class="mono" value="${esc(d.numero)}"></div>
+      </div>
+      <div class="grid3">
+        <div class="field" style="grid-column:span 2"><label for="d-cli">Cliente</label><select id="d-cli"><option value="">— Elige un cliente —</option>${S.clientes.map(c=>`<option value="${esc(c.id)}" ${d.clienteId===c.id?'selected':''}>${esc(c.nombre)}${c.nif?' · '+esc(c.nif):''}</option>`).join('')}<option value="__new">+ Cliente nuevo…</option></select></div>
+        <div class="field" style="grid-column:span 2"><label>&nbsp;</label><div class="hint" id="d-clidata">${cliLine(d.cliente)}</div></div>
+      </div>
+      <div class="lines-box"><table class="lines"><thead><tr><th style="width:44%">Concepto</th><th style="width:9%">Cant.</th><th style="width:9%">Ud.</th><th style="width:13%">Precio</th><th style="width:8%">Dto %</th><th style="width:13%;text-align:right">Importe</th><th></th></tr></thead><tbody id="d-lines"></tbody></table></div>
+      <div style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-start">
+        <div style="display:flex;flex-direction:column;gap:12px;flex:1;min-width:240px">
+          <button class="btn btn-ghost btn-sm" id="d-add" style="align-self:flex-start">+ Añadir línea</button>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <div class="field" style="width:220px"><label for="d-iva">IVA</label><select id="d-iva">${IVAS.map(([v,l])=>`<option value="${v}" ${String(d.iva)===v?'selected':''}>${l}</option>`).join('')}</select></div>
+            <div class="field" style="width:120px"><label for="d-irpf">Retención IRPF %</label><input id="d-irpf" type="number" min="0" step="1" class="mono" value="${+d.irpf||0}"></div>
+            ${isF?`<div class="field" style="width:220px"><label for="d-pago">Forma de pago</label><input id="d-pago" value="${esc(d.formaPago||'')}"></div>`:''}
+          </div>
+          <div class="field"><label for="d-notas">Notas para el cliente</label><textarea id="d-notas" style="min-height:70px" placeholder="${isF?'':'Ejemplo: incluye boletín CIE y tasas de Industria. Plazo de ejecución: 5 días laborables.'}">${esc(d.notas||'')}</textarea></div>
+          <div class="hint" id="d-isp" ${String(d.iva)==='ISP'?'':'hidden'}>Se añadirá al documento: «${ISP_TXT}»</div>
+        </div>
+        <div class="totals" id="d-tot"></div>
+      </div>
+      <div id="d-confirm"></div>
+    </div>
+    <div class="modal-f">
+      <div class="grp">${isNew?'':'<button class="btn btn-danger btn-sm" id="d-del">Eliminar</button>'}</div>
+      <div class="grp">
+        ${!isNew&&!isF?'<button class="btn btn-ghost" id="d-conv">Pasar a factura</button>':''}
+        <button class="btn btn-ghost" id="d-prev">Vista previa</button>
+        <button class="btn btn-ghost" id="d-pdf">Descargar PDF</button>
+        <button class="btn btn-accent" id="d-save">Guardar</button>
+      </div>
+    </div>`);
+  $('#mx').onclick=closeModal;
+  const linesEl=$('#d-lines');
+  function drawLines(){
+    linesEl.innerHTML=d.lineas.map((l,i)=>`<tr data-i="${i}"><td><input data-k="c" value="${esc(l.c)}" placeholder="Ejemplo: Punto de luz empotrado con mecanismo" aria-label="Concepto"></td><td><input data-k="q" class="n" type="number" step="any" value="${l.q}" aria-label="Cantidad"></td><td><input data-k="u" value="${esc(l.u||'')}" aria-label="Unidad"></td><td><input data-k="p" class="n" type="number" step="0.01" value="${l.p}" aria-label="Precio"></td><td><input data-k="d" class="n" type="number" step="any" value="${l.d||0}" aria-label="Descuento"></td><td class="mono" style="text-align:right" data-imp>${money(r2(l.q*l.p*(1-(l.d||0)/100)))}</td><td><button class="rm" aria-label="Quitar línea" data-rm="${i}">×</button></td></tr>`).join('');
+    linesEl.querySelectorAll('input').forEach(inp=>inp.oninput=()=>{ const tr=inp.closest('tr'), i=+tr.dataset.i, k=inp.dataset.k; d.lineas[i][k] = (k==='c'||k==='u') ? inp.value : (parseFloat(inp.value)||0); const l=d.lineas[i]; tr.querySelector('[data-imp]').textContent=money(r2(l.q*l.p*(1-(l.d||0)/100))); drawTot(); });
+    linesEl.querySelectorAll('[data-rm]').forEach(b=>b.onclick=()=>{ d.lineas.splice(+b.dataset.rm,1); if(!d.lineas.length) d.lineas.push({c:'',q:1,u:'ud',p:0,d:0}); drawLines(); drawTot(); });
+  }
+  function drawTot(){ const t=calc(d); const ivaL = String(d.iva)==='ISP'?'IVA (ISP)':`IVA ${d.iva} %`;
+    $('#d-tot').innerHTML=`<span>Base imponible</span><span class="t">${money(t.base)}</span><span>${ivaL}</span><span class="t">${money(t.cuotaIva)}</span>${+d.irpf?`<span>Retención IRPF ${d.irpf} %</span><span class="t">−${money(t.cuotaIrpf)}</span>`:''}<span class="big">Total</span><span class="t big">${money(t.total)}</span>`; }
+  drawLines(); drawTot();
+  $('#d-add').onclick=()=>{ d.lineas.push({c:'',q:1,u:'ud',p:0,d:0}); drawLines(); drawTot(); linesEl.lastElementChild.querySelector('input').focus(); };
+  $('#d-iva').onchange=e=>{ d.iva=e.target.value; $('#d-isp').hidden=d.iva!=='ISP'; drawTot(); };
+  $('#d-irpf').oninput=e=>{ d.irpf=parseFloat(e.target.value)||0; drawTot(); };
+  $('#d-fecha').onchange=e=>{ d.fecha=e.target.value; if(isNew){ Object.assign(d,nextNumero(T,d.fecha)); $('#d-numero').value=d.numero; } };
+  $('#d-cli').onchange=e=>{ const v=e.target.value; if(v==='__new'){ const keep=JSON.parse(JSON.stringify(collect())); openCliente(null, c=>openDoc({...keep,clienteId:c.id,cliente:snap(c)}), null, ()=>openDoc(keep)); return;} const c=S.clientes.find(x=>x.id===v); d.clienteId=v; d.cliente=c?snap(c):{}; $('#d-clidata').innerHTML=cliLine(d.cliente); };
+  function collect(){ d.fecha=$('#d-fecha').value; d.vence=$('#d-vence').value; d.estado=$('#d-estado').value; d.notas=$('#d-notas').value; d.numero=$('#d-numero').value.trim()||d.numero; if($('#d-pago')) d.formaPago=$('#d-pago').value; const m=d.numero.match(/^([A-Z]+)-(\d{4})-(\d+)$/); if(m){d.serie=m[1];d.anio=m[2];d.num=+m[3];} return d; }
+  async function save(silent){
+    collect();
+    if(!d.clienteId){ $('#d-confirm').innerHTML='<div class="notice bad">Elige un cliente antes de guardar.</div>'; return null; }
+    if(S.docs.some(x=>x.id!==d.id && x.tipo===d.tipo && x.numero===d.numero)){ $('#d-confirm').innerHTML=`<div class="notice bad">Ya existe un documento con el número ${esc(d.numero)}. Cambia el número para guardar.</div>`; return null; }
+    const body={...d, lineas:d.lineas.filter(l=>l.c||l.p), ...calc(d), actualizado:new Date().toISOString(), editadoPor: A.email||''};
+    delete body.id; delete body.__new; if(!body.creado) body.creado=body.actualizado; delete body.ejemplo;
+    try{ d.id = await A.save('documentos', d.id||null, body); if(!silent){ toast('Guardado'); closeModal(); } return {...body,id:d.id}; }
+    catch(err){ $('#d-confirm').innerHTML=`<div class="notice bad">No se ha podido guardar (${esc(err.code||'error')}). Comprueba la conexión y vuelve a intentarlo.</div>`; return null; }
+  }
+  $('#d-save').onclick=()=>save();
+  $('#d-prev').onclick=()=>{ collect(); previewDoc({...d,...calc(d)}); };
+  $('#d-pdf').onclick=()=>{ collect(); downloadPDF({...d,...calc(d)}); };
+  if($('#d-del')) $('#d-del').onclick=()=>{
+    $('#d-confirm').innerHTML=`<div class="confirm-bar">¿Eliminar ${esc(d.numero)}? No se puede deshacer.${isF?' En facturas emitidas lo correcto es emitir una rectificativa.':''}<button class="btn btn-sm btn-danger" id="d-yes">Eliminar</button><button class="btn btn-sm btn-ghost" id="d-no">Cancelar</button></div>`;
+    $('#d-no').onclick=()=>$('#d-confirm').innerHTML='';
+    $('#d-yes').onclick=async()=>{ try{ await A.remove('documentos',d.id); toast('Eliminado'); closeModal(); }catch(e){ toast('No se ha podido eliminar'); } };
+  };
+  if($('#d-conv')) $('#d-conv').onclick=async()=>{
+    const saved=await save(true); if(!saved) return;
+    if(saved.estado!=='aceptado'){ try{ await A.patch('documentos',saved.id,{estado:'aceptado'}); }catch(e){} }
+    const f=todayISO();
+    const fac={...JSON.parse(JSON.stringify(saved)), id:undefined, tipo:'factura', ...nextNumero('factura',f), fecha:f, vence:addDays(f,+S.priv.diasVence||30), estado:'emitida', origen:saved.numero, formaPago:'Transferencia bancaria', creado:null};
+    delete fac.id; fac.notas = (saved.notas?saved.notas+'\n':'')+`Según presupuesto ${saved.numero}.`;
+    closeModal(); openDocFrom(fac);
+  };
+}
+function openDocFrom(data){ // editor de documento nuevo con datos ya rellenos
+  const clone=JSON.parse(JSON.stringify(data)); delete clone.id;
+  openDoc(clone);
+  const h=$('.modal-h h2'); if(h) h.insertAdjacentHTML('beforeend',' <span class="pill p-nuevo" style="font-style:normal;vertical-align:middle">Nueva, sin guardar</span>');
+}
+const snap = c => ({nombre:c.nombre||'',nif:c.nif||'',direccion:c.direccion||'',cp:c.cp||'',ciudad:c.ciudad||'',email:c.email||'',tel:c.tel||''});
+const cliLine = c => c&&c.nombre ? esc([c.nif,[c.direccion,c.cp,c.ciudad].filter(Boolean).join(', '),c.tel].filter(Boolean).join(' · ')) || 'Sin datos fiscales' : 'Sin cliente';
+
+/* ---------- Documento: vista previa y PDF ---------- */
+function docHTML(d){
+  const p=S.pub, isF=d.tipo==='factura', c=d.cliente||{};
+  const ivaL = String(d.iva)==='ISP'?'IVA (ISP)':`IVA ${d.iva} %`;
+  return `<div class="paper"><div class="ph"><div><div style="font-family:var(--f-display);font-style:italic;font-weight:900;font-size:1.6rem">${esc(p.razon)}</div><div>NIF ${esc(p.nif||'—')}</div><div>${esc([p.direccion,p.cp,p.ciudad].filter(Boolean).join(', '))}</div><div>${esc([p.tel,p.email].filter(Boolean).join(' · '))}</div></div><div style="text-align:right"><h4>${isF?'Factura':'Presupuesto'}</h4><div class="mono">${esc(d.numero)}</div><div>Fecha: ${fdate(d.fecha)}</div><div>${isF?'Vencimiento':'Válido hasta'}: ${fdate(d.vence)}</div></div></div>
+  <div><b>Cliente</b><br>${esc(c.nombre||'—')}<br>${c.nif?'NIF '+esc(c.nif)+'<br>':''}${esc([c.direccion,c.cp,c.ciudad].filter(Boolean).join(', '))}</div>
+  <table><thead><tr><th>Concepto</th><th style="text-align:right">Cant.</th><th style="text-align:right">Precio</th><th style="text-align:right">Dto</th><th style="text-align:right">Importe</th></tr></thead><tbody>${(d.lineas||[]).filter(l=>l.c||l.p).map(l=>`<tr><td>${esc(l.c)}</td><td style="text-align:right" class="mono">${l.q} ${esc(l.u||'')}</td><td style="text-align:right" class="mono">${money(l.p)}</td><td style="text-align:right" class="mono">${l.d?l.d+' %':''}</td><td style="text-align:right" class="mono">${money(r2(l.q*l.p*(1-(l.d||0)/100)))}</td></tr>`).join('')}</tbody></table>
+  <div style="display:flex;justify-content:flex-end"><div style="display:grid;grid-template-columns:auto auto;gap:3px 24px"><span>Base imponible</span><span class="mono" style="text-align:right">${money(d.base)}</span><span>${ivaL}</span><span class="mono" style="text-align:right">${money(d.cuotaIva)}</span>${+d.irpf?`<span>Retención IRPF ${d.irpf} %</span><span class="mono" style="text-align:right">−${money(d.cuotaIrpf)}</span>`:''}<b>TOTAL</b><b class="mono" style="text-align:right">${money(d.total)}</b></div></div>
+  ${String(d.iva)==='ISP'?`<p style="font-size:.8rem">${ISP_TXT}</p>`:''}
+  ${d.notas?`<p style="white-space:pre-wrap">${esc(d.notas)}</p>`:''}
+  ${isF?`<p>Forma de pago: ${esc(d.formaPago||'')}${S.priv.iban?' · IBAN '+esc(S.priv.iban):''}</p>`:''}
+  ${S.priv.pie?`<p style="font-size:.75rem;color:#555;white-space:pre-wrap">${esc(S.priv.pie)}</p>`:''}</div>`;
+}
+function previewDoc(d){
+  const back=$('#modal-root').innerHTML;
+  const wrap=document.createElement('div'); wrap.className='overlay'; wrap.style.zIndex=60;
+  wrap.innerHTML=`<div class="modal"><div class="modal-h"><h2>Vista previa</h2><button class="x" aria-label="Cerrar vista previa">×</button></div><div class="modal-b">${docHTML(d)}</div></div>`;
+  document.body.appendChild(wrap);
+  wrap.querySelector('.x').onclick=()=>wrap.remove(); wrap.addEventListener('mousedown',e=>{if(e.target===wrap)wrap.remove();});
+}
+async function downloadPDF(d){
+  if(!window.jspdf){ toast('No se ha podido cargar el generador de PDF'); return; }
+  if(!A.canDownload){ toast('La descarga no está disponible en esta vista. Usa la vista previa.'); return; }
+  const {jsPDF}=window.jspdf; const doc=new jsPDF({unit:'mm',format:'a4'}); const p=S.pub, c=d.cliente||{}, isF=d.tipo==='factura';
+  const W=210, M=16; let y=18;
+  doc.setFillColor(20,21,23); doc.rect(M,y-8,62,13,'F'); doc.setTextColor(255,255,255); doc.setFont('helvetica','bolditalic'); doc.setFontSize(20); doc.text('JUNSAN',M+4,y+1.5);
+  doc.setFillColor(244,194,26); doc.rect(M+8,y+5,46,4.5,'F'); doc.setTextColor(20,21,23); doc.setFontSize(8); doc.text('PRO ELECTRIC',M+20,y+8.5);
+  doc.setFont('helvetica','bold'); doc.setFontSize(18); doc.text(isF?'FACTURA':'PRESUPUESTO',W-M,y,{align:'right'});
+  doc.setFont('helvetica','normal'); doc.setFontSize(10); doc.text(`Nº ${d.numero}`,W-M,y+6,{align:'right'}); doc.text(`Fecha: ${fdate(d.fecha)}`,W-M,y+11,{align:'right'}); doc.text(`${isF?'Vencimiento':'Válido hasta'}: ${fdate(d.vence)}`,W-M,y+16,{align:'right'});
+  y=44; doc.setFontSize(9); doc.setFont('helvetica','bold'); doc.text('EMISOR',M,y); doc.text('CLIENTE',110,y); doc.setFont('helvetica','normal');
+  const em=[p.razon,'NIF '+(p.nif||'—'),[p.direccion,p.cp,p.ciudad].filter(Boolean).join(', '),[p.tel,p.email].filter(Boolean).join(' · ')].filter(Boolean);
+  const cl=[c.nombre,c.nif?'NIF '+c.nif:'',[c.direccion,c.cp,c.ciudad].filter(Boolean).join(', ')].filter(Boolean);
+  em.forEach((t,i)=>doc.text(doc.splitTextToSize(t,85)[0],M,y+5+i*4.5)); cl.forEach((t,i)=>doc.text(doc.splitTextToSize(t,85)[0],110,y+5+i*4.5));
+  y=72; doc.setFillColor(20,21,23); doc.rect(M,y,W-2*M,7,'F'); doc.setTextColor(255,255,255); doc.setFont('helvetica','bold'); doc.setFontSize(8.5);
+  const cx=[M+2,128,146,164,W-M-2]; doc.text('CONCEPTO',cx[0],y+4.8); doc.text('CANT.',cx[1],y+4.8,{align:'right'}); doc.text('PRECIO',cx[2]+6,y+4.8,{align:'right'}); doc.text('DTO',cx[3],y+4.8,{align:'right'}); doc.text('IMPORTE',cx[4],y+4.8,{align:'right'});
+  doc.setTextColor(20,21,23); doc.setFont('helvetica','normal'); doc.setFontSize(9.5); y+=12;
+  for(const l of (d.lineas||[]).filter(l=>l.c||l.p)){
+    const lines=doc.splitTextToSize(l.c||'',100); if(y+lines.length*4.5>255){ doc.addPage(); y=20; }
+    doc.text(lines,cx[0],y); doc.text(`${l.q} ${l.u||''}`.trim(),cx[1],y,{align:'right'}); doc.text(money(l.p),cx[2]+6,y,{align:'right'}); doc.text(l.d?l.d+' %':'',cx[3],y,{align:'right'}); doc.text(money(r2(l.q*l.p*(1-(l.d||0)/100))),cx[4],y,{align:'right'});
+    y+=lines.length*4.5+2; doc.setDrawColor(220); doc.line(M,y-3,W-M,y-3);
+  }
+  y+=4; const rows=[['Base imponible',money(d.base)],[String(d.iva)==='ISP'?'IVA (ISP)':`IVA ${d.iva} %`,money(d.cuotaIva)]]; if(+d.irpf) rows.push([`Retención IRPF ${d.irpf} %`,'-'+money(d.cuotaIrpf)]);
+  rows.forEach(([a,b])=>{ doc.text(a,140,y); doc.text(b,W-M,y,{align:'right'}); y+=5.5; });
+  doc.setFillColor(244,194,26); doc.rect(134,y-4,W-M-134,9,'F'); doc.setFont('helvetica','bold'); doc.setFontSize(12); doc.text('TOTAL',138,y+2.2); doc.text(money(d.total),W-M-2,y+2.2,{align:'right'});
+  y+=16; doc.setFont('helvetica','normal'); doc.setFontSize(9);
+  const extra=[]; if(String(d.iva)==='ISP') extra.push(ISP_TXT); if(d.notas) extra.push(d.notas); if(isF) extra.push('Forma de pago: '+(d.formaPago||'')+(S.priv.iban?' · IBAN '+S.priv.iban:'')); if(S.priv.pie) extra.push(S.priv.pie);
+  extra.forEach(t=>{ const ls=doc.splitTextToSize(t,W-2*M); if(y+ls.length*4>285){doc.addPage();y=20;} doc.text(ls,M,y); y+=ls.length*4+3; });
+  try{ await A.download(doc.output('blob'), `${d.numero}${c.nombre?' '+c.nombre.replace(/[^\wÁÉÍÓÚÑáéíóúñ ]/g,''):''}.pdf`); }
+  catch(e){ toast('No se ha podido descargar el PDF'); }
+}
+
+/* ---------- Clientes ---------- */
+function panelClientes(P){
+  P.innerHTML=`<div class="toolbar"><div class="left"><input class="search" id="q" placeholder="Buscar cliente" value="${esc(S.q)}" aria-label="Buscar cliente"></div><button class="btn btn-accent" id="new">+ Cliente</button></div><div id="cl"></div>`;
+  $('#new').onclick=()=>openCliente(null);
+  $('#q').oninput=e=>{S.q=e.target.value;draw();};
+  function draw(){ const q=S.q.toLowerCase(); const list=S.clientes.filter(c=>!q||(c.nombre+' '+(c.nif||'')+' '+(c.ciudad||'')).toLowerCase().includes(q)).sort((a,b)=>a.nombre.localeCompare(b.nombre));
+    $('#cl').innerHTML=list.length?`<div class="table-box"><table class="list"><thead><tr><th>Nombre</th><th>NIF</th><th>Teléfono</th><th>Localidad</th><th class="num">Facturado</th></tr></thead><tbody>${list.map(c=>{const t=S.docs.filter(d=>d.tipo==='factura'&&d.clienteId===c.id).reduce((s,d)=>s+(d.total||0),0);return `<tr data-id="${esc(c.id)}"><td>${esc(c.nombre)} ${c.ejemplo?'<span class="example">Ejemplo</span>':''}</td><td class="mono">${esc(c.nif||'')}</td><td class="mono">${esc(c.tel||'')}</td><td>${esc(c.ciudad||'')}</td><td class="num">${money(t)}</td></tr>`;}).join('')}</tbody></table></div>`:'<div class="empty">Sin clientes todavía. Añade el primero para poder hacerle presupuestos.</div>';
+    $('#cl').querySelectorAll('tr[data-id]').forEach(r=>r.onclick=()=>openCliente(S.clientes.find(c=>c.id===r.dataset.id)));
+  }
+  draw();
+}
+function openCliente(c, after, prefill, onCancel){
+  const x=c?{...c}:{nombre:'',nif:'',direccion:'',cp:'',ciudad:'',tel:'',email:'',...(prefill||{})};
+  const F=[['nombre','Nombre o razón social',1],['nif','NIF / CIF'],['tel','Teléfono'],['email','Correo'],['direccion','Dirección',1],['cp','C.P.'],['ciudad','Localidad']];
+  modal(`<div class="modal-h"><h2>${c?'Editar cliente':'Cliente nuevo'}</h2><button class="x" aria-label="Cerrar" id="mx">×</button></div>
+  <div class="modal-b"><form class="grid" id="cf">${F.map(([k,l,full])=>`<div class="field ${full?'full':''}"><label for="cl-${k}">${l}</label><input id="cl-${k}" value="${esc(x[k]||'')}"></div>`).join('')}</form><div id="cl-msg"></div></div>
+  <div class="modal-f"><div class="grp">${c?'<button class="btn btn-danger btn-sm" id="cl-del">Eliminar</button>':''}</div><div class="grp"><button class="btn btn-ghost" id="cl-cancel">Cancelar</button><button class="btn btn-accent" id="cl-save">Guardar cliente</button></div></div>`, true);
+  $('#mx').onclick=$('#cl-cancel').onclick=()=>{ closeModal(); if(onCancel) onCancel(); };
+  $('#cl-save').onclick=async()=>{ F.forEach(([k])=>x[k]=$('#cl-'+k).value.trim()); if(!x.nombre){ $('#cl-msg').innerHTML='<div class="notice bad">El nombre es obligatorio.</div>'; return; }
+    const body={...x}; delete body.id; delete body.ejemplo;
+    try{ const nid=await A.save('clientes', c?c.id:null, body); const saved={...body,id:nid}; toast('Cliente guardado'); closeModal(); if(after) after({...saved}) }catch(e){ $('#cl-msg').innerHTML='<div class="notice bad">No se ha podido guardar. Inténtalo de nuevo.</div>'; } };
+  if(c) $('#cl-del').onclick=()=>{ const used=S.docs.some(d=>d.clienteId===c.id); $('#cl-msg').innerHTML=`<div class="confirm-bar">${used?'Este cliente tiene documentos; seguirán guardados con sus datos. ':''}¿Eliminar a ${esc(c.nombre)}?<button class="btn btn-sm btn-danger" id="y">Eliminar</button><button class="btn btn-sm btn-ghost" id="n">Cancelar</button></div>`; $('#n').onclick=()=>$('#cl-msg').innerHTML=''; $('#y').onclick=async()=>{ try{ await A.remove('clientes',c.id); toast('Cliente eliminado'); closeModal(); }catch(e){ toast('No se ha podido eliminar'); } }; };
+}
+
+/* ---------- Mensajes ---------- */
+function panelMensajes(P){
+  const list=[...S.mensajes].sort((a,b)=>(b.fecha||'').localeCompare(a.fecha||''));
+  P.innerHTML = list.length ? `<div style="display:flex;flex-direction:column;gap:12px">${list.map(m=>`<div class="card" style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><div><b>${esc(m.nombre)}</b> · <span class="mono">${esc(m.tel)}</span>${m.email?' · '+esc(m.email):''}${m.localidad?' · '+esc(m.localidad):''} ${m.ejemplo?'<span class="example">Ejemplo</span>':''}</div><div style="display:flex;gap:8px;align-items:center">${pill(m.estado||'nuevo')}<span class="hint">${fdate((m.fecha||'').slice(0,10))}</span></div></div><div class="hint">${esc(m.tipo)}</div><p style="margin:0;white-space:pre-wrap">${esc(m.mensaje)}</p><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-sm btn-accent" data-pres="${esc(m.id)}">Crear presupuesto</button>${m.estado!=='atendido'?`<button class="btn btn-sm btn-ghost" data-ok="${esc(m.id)}">Marcar atendido</button>`:''}<button class="btn btn-sm btn-ghost" data-del="${esc(m.id)}">Borrar</button></div></div>`).join('')}</div>` : '<div class="empty">No hay consultas. Las que lleguen desde el formulario de contacto aparecerán aquí.</div>';
+  P.querySelectorAll('[data-ok]').forEach(b=>b.onclick=()=>A.msgUpdate(S.mensajes.find(x=>x.id===b.dataset.ok),'atendido').catch(()=>toast('No se ha podido actualizar')));
+  P.querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>{ if(b.dataset.armed){ A.msgDelete(S.mensajes.find(x=>x.id===b.dataset.del)).catch(()=>toast('No se ha podido borrar')); } else { b.dataset.armed='1'; b.textContent='Pulsa otra vez para borrar'; b.classList.add('btn-danger'); } });
+  P.querySelectorAll('[data-pres]').forEach(b=>b.onclick=()=>{ const m=S.mensajes.find(x=>x.id===b.dataset.pres); const ex=S.clientes.find(c=>c.tel&&c.tel===m.tel);
+    const go=c=>{ A.msgUpdate(m,'atendido').catch(()=>{}); const f=todayISO(); openDocFrom({tipo:'presupuesto',...nextNumero('presupuesto',f),fecha:f,vence:addDays(f,+S.priv.validez||30),clienteId:c.id,cliente:snap(c),lineas:[{c:m.tipo,q:1,u:'ud',p:0,d:0}],iva:'21',irpf:0,estado:'borrador',notas:''}); };
+    if(ex) go(ex); else openCliente(null, go, {nombre:m.nombre,tel:m.tel,email:m.email}); });
+}
+
+/* ---------- Trabajos (gestión) ---------- */
+function panelTrabajos(P){
+  const list=S.trabajos||[];
+  P.innerHTML=`<div class="toolbar"><p class="hint" style="margin:0">Lo que añadas aquí aparece en la sección Trabajos de la web.</p><button class="btn btn-accent" id="new">+ Trabajo</button></div>
+  ${list.length?`<div class="works">${list.map(w=>`<div style="display:flex;flex-direction:column;gap:6px">${workCard(w)}<div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><button class="btn btn-sm btn-ghost" data-e="${esc(w.id)}">Editar</button>${w.visible===false?'<span class="pill p-borrador">Oculto</span>':'<span class="pill p-pagada">Publicado</span>'}</div></div>`).join('')}</div>`:'<div class="empty">Aún no hay trabajos. Añade fotos de obras terminadas para que los clientes las vean.</div>'}`;
+  $('#new').onclick=()=>openTrabajo(null);
+  P.querySelectorAll('[data-e]').forEach(b=>b.onclick=()=>openTrabajo(list.find(w=>w.id===b.dataset.e)));
+}
+function openTrabajo(w){
+  const x=w?{...w}:{titulo:'',categoria:'Reformas',localidad:'',fecha:todayISO(),descripcion:'',visible:true};
+  modal(`<div class="modal-h"><h2>${w?'Editar trabajo':'Trabajo nuevo'}</h2><button class="x" aria-label="Cerrar" id="mx">×</button></div>
+  <div class="modal-b"><form class="grid" onsubmit="return false">
+    <div class="field full"><label for="w-t">Título</label><input id="w-t" value="${esc(x.titulo)}" placeholder="Ejemplo: Cuadro nuevo en local comercial"></div>
+    <div class="field"><label for="w-c">Categoría</label><select id="w-c">${CATS.map(c=>`<option ${x.categoria===c?'selected':''}>${c}</option>`).join('')}</select></div>
+    <div class="field"><label for="w-l">Localidad</label><input id="w-l" value="${esc(x.localidad||'')}"></div>
+    <div class="field"><label for="w-f">Fecha</label><input id="w-f" type="date" value="${esc(x.fecha||'')}"></div>
+    <div class="field"><label for="w-v">Visibilidad</label><select id="w-v"><option value="1" ${x.visible!==false?'selected':''}>Publicado en la web</option><option value="0" ${x.visible===false?'selected':''}>Oculto</option></select></div>
+    <div class="field full"><label for="w-d">Descripción</label><textarea id="w-d" style="min-height:70px">${esc(x.descripcion||'')}</textarea></div>
+    <div class="field full"><label for="w-img">Foto</label><input id="w-img" type="file" accept="image/*"><span class="hint" id="w-imgh">${x.fotoUrl?'Ya tiene foto. Elige otra para cambiarla.':(A.canUpload?'JPG o PNG, hasta 10 MB.':'La subida de fotos no está disponible en esta vista.')}</span></div>
+  </form><div id="w-msg"></div></div>
+  <div class="modal-f"><div class="grp">${w?'<button class="btn btn-danger btn-sm" id="w-del">Eliminar</button>':''}</div><div class="grp"><button class="btn btn-ghost" id="w-cancel">Cancelar</button><button class="btn btn-accent" id="w-save">Guardar</button></div></div>`, true);
+  $('#mx').onclick=$('#w-cancel').onclick=closeModal;
+  if(!A.canUpload) $('#w-img').disabled=true;
+  $('#w-save').onclick=async()=>{
+    x.titulo=$('#w-t').value.trim(); x.categoria=$('#w-c').value; x.localidad=$('#w-l').value.trim(); x.fecha=$('#w-f').value; x.visible=$('#w-v').value==='1'; x.descripcion=$('#w-d').value.trim();
+    if(!x.titulo){ $('#w-msg').innerHTML='<div class="notice bad">Pon un título al trabajo.</div>'; return; }
+    const file=$('#w-img').files[0]; const btn=$('#w-save'); btn.disabled=true;
+    try{ if(file&&A.canUpload){ btn.textContent='Subiendo foto…'; x.fotoUrl=await A.upload(file); }
+      const body={...x}; delete body.id; delete body.ejemplo;
+      await A.save('trabajos', w?w.id:null, body); toast('Trabajo guardado'); closeModal();
+    }catch(e){ btn.disabled=false; btn.textContent='Guardar'; $('#w-msg').innerHTML=`<div class="notice bad">No se ha podido guardar${e&&e.code?' ('+esc(e.code)+')':''}. Prueba con una foto más pequeña o inténtalo de nuevo.</div>`; }
+  };
+  if(w) $('#w-del').onclick=()=>{ $('#w-msg').innerHTML=`<div class="confirm-bar">¿Eliminar «${esc(w.titulo)}» de la web?<button class="btn btn-sm btn-danger" id="y">Eliminar</button><button class="btn btn-sm btn-ghost" id="n">Cancelar</button></div>`; $('#n').onclick=()=>$('#w-msg').innerHTML=''; $('#y').onclick=async()=>{ try{ await A.remove('trabajos',w.id); toast('Trabajo eliminado'); closeModal(); }catch(e){ toast('No se ha podido eliminar'); } }; };
+}
+
+/* ---------- Ajustes ---------- */
+function panelAjustes(P){
+  const p=S.pub, v=S.priv;
+  const pubF=[['razon','Razón social'],['nif','NIF de la comunidad de bienes (empieza por E)'],['direccion','Dirección fiscal'],['cp','C.P.'],['ciudad','Localidad'],['tel','Teléfono 1 / WhatsApp'],['tel2','Teléfono 2 / WhatsApp'],['email','Correo'],['zona','Zona de trabajo'],['horario','Horario'],['socios','Socios (se muestra en el aviso legal)']];
+  P.innerHTML=`<div class="two">
+  <div class="card"><h3>Datos de la empresa</h3><p class="hint" style="margin-top:-6px">Se muestran en la web y en presupuestos y facturas.</p><form class="grid" onsubmit="return false">${pubF.map(([k,l])=>`<div class="field ${['razon','nif','direccion'].includes(k)?'full':''}"><label for="a-${k}">${l}</label><input id="a-${k}" value="${esc(p[k]||'')}"></div>`).join('')}</form></div>
+  <div class="card"><h3>Facturación</h3><p class="hint" style="margin-top:-6px">Solo lo ven los socios.</p><form class="grid" onsubmit="return false">
+    <div class="field full"><label for="a-iban">IBAN para cobros</label><input id="a-iban" class="mono" value="${esc(v.iban||'')}" placeholder="ES00 0000 0000 0000 0000 0000"></div>
+    <div class="field full"><label for="a-socios">Socios (nombre y NIF de cada uno)</label><input id="a-socios" value="${esc(v.socios||'')}"></div>
+    <div class="field"><label for="a-dv">Días hasta vencimiento</label><input id="a-dv" type="number" min="0" value="${+v.diasVence||30}"></div>
+    <div class="field"><label for="a-val">Validez de presupuestos (días)</label><input id="a-val" type="number" min="0" value="${+v.validez||30}"></div>
+    <div class="field full"><label for="a-pie">Texto legal al pie</label><textarea id="a-pie" style="min-height:80px" placeholder="Ejemplo: Garantía de 3 años sobre la mano de obra. Datos tratados conforme al RGPD.">${esc(v.pie||'')}</textarea></div>
+  </form></div></div>
+  ${A.needsLogin?`<div class="card" style="margin-top:24px;max-width:520px"><h3>Tu contraseña</h3><p class="hint" style="margin-top:-6px">Sesión iniciada como ${esc(A.email)}.</p><form class="grid" onsubmit="return false"><div class="field"><label for="pw1">Nueva contraseña</label><input id="pw1" type="password" autocomplete="new-password"></div><div class="field"><label for="pw2">Repítela</label><input id="pw2" type="password" autocomplete="new-password"></div></form><div style="display:flex;gap:10px;align-items:center;margin-top:12px;flex-wrap:wrap"><button class="btn btn-plate btn-sm" id="pw-b">Cambiar contraseña</button><span id="pw-m" class="hint"></span></div></div>`:''}
+  <div style="display:flex;gap:12px;align-items:center;margin-top:18px;flex-wrap:wrap"><button class="btn btn-accent" id="a-save">Guardar ajustes</button><span id="a-msg" class="hint"></span></div>`;
+  $('#a-save').onclick=async()=>{ const np={}; pubF.forEach(([k])=>np[k]=$('#a-'+k).value.trim()); const nv={iban:$('#a-iban').value.trim(),socios:$('#a-socios').value.trim(),diasVence:+$('#a-dv').value||30,validez:+$('#a-val').value||30,pie:$('#a-pie').value.trim()};
+    try{ await A.saveAjustes(np,nv); S.pub={...DEFAULT_PUB,...np}; S.priv={...S.priv,...nv}; renderPub(); toast('Ajustes guardados'); }catch(e){ $('#a-msg').textContent='No se han podido guardar. Inténtalo de nuevo.'; } };
+  if($('#pw-b')) $('#pw-b').onclick=async()=>{ const a=$('#pw1').value,b=$('#pw2').value; if(a.length<10){ $('#pw-m').textContent='Usa al menos 10 caracteres.'; return;} if(a!==b){ $('#pw-m').textContent='Las dos contraseñas no coinciden.'; return;} try{ await A.changePassword(a); $('#pw1').value=$('#pw2').value=''; $('#pw-m').textContent='Contraseña cambiada.'; }catch(e){ $('#pw-m').textContent='No se ha podido cambiar: '+(e.message||'error'); } };
+}
+
+/* ---------- Chispa del hero ---------- */
+(function spark(){
+  const cv=$('#spark'); if(!cv) return; const ctx=cv.getContext('2d'); let W,H,path=[],t0=performance.now(), raf;
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function build(){ const r=cv.getBoundingClientRect(); const dpr=Math.min(2,devicePixelRatio||1); W=r.width; H=r.height; cv.width=W*dpr; cv.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
+    const y=H-22; path=[[0,y],[W*0.18,y],[W*0.24,y-34],[W*0.46,y-34],[W*0.52,y],[W*0.72,y],[W*0.78,y-60],[W,y-60]]; }
+  function len(){ let L=0; for(let i=1;i<path.length;i++) L+=Math.hypot(path[i][0]-path[i-1][0],path[i][1]-path[i-1][1]); return L; }
+  function at(d){ for(let i=1;i<path.length;i++){ const [x0,y0]=path[i-1],[x1,y1]=path[i]; const s=Math.hypot(x1-x0,y1-y0); if(d<=s) return [x0+(x1-x0)*d/s,y0+(y1-y0)*d/s]; d-=s; } return path[path.length-1]; }
+  function frame(now){ const cs=getComputedStyle(document.documentElement); const line=cs.getPropertyValue('--line').trim(), acc=cs.getPropertyValue('--accent').trim();
+    ctx.clearRect(0,0,W,H); ctx.lineWidth=2; ctx.strokeStyle=line; ctx.setLineDash([10,6]); ctx.beginPath(); path.forEach(([x,y],i)=>i?ctx.lineTo(x,y):ctx.moveTo(x,y)); ctx.stroke(); ctx.setLineDash([]);
+    const L=len(), d=reduce?L*0.62:((now-t0)/5200%1)*L;
+    for(let k=0;k<26;k++){ const p=at(Math.max(0,d-k*5)); ctx.globalAlpha=1-k/26; ctx.fillStyle=acc; ctx.beginPath(); ctx.arc(p[0],p[1],k?3:5.5,0,7); ctx.fill(); }
+    ctx.globalAlpha=1; if(!reduce) raf=requestAnimationFrame(frame); }
+  build(); addEventListener('resize',()=>{ build(); if(reduce) frame(0); }); frame(performance.now());
+  document.addEventListener('visibilitychange',()=>{ if(document.hidden) cancelAnimationFrame(raf); else if(!reduce) raf=requestAnimationFrame(frame); });
+})();
+
+/* ---------- Arranque ---------- */
+renderPub(); renderWorks(); route();
+const rerender=()=>{ if(location.hash==='#socios' && !$('#modal-root').innerHTML && S.tab!=='ajustes') renderAdmin(); };
+A.start({
+  pub:d=>{ S.pub={...DEFAULT_PUB,...d}; renderPub(); },
+  priv:d=>{ S.priv={...S.priv,...d}; },
+  trabajos:list=>{ S.trabajos = list===null ? (S.trabajos||null) : list.sort((a,b)=>(b.fecha||'').localeCompare(a.fecha||'')); if(S.trabajos&&!S.trabajos.length&&!A.socio) S.trabajos=null; renderWorks(); },
+  clientes:l=>S.clientes=l, docs:l=>S.docs=l, mensajes:l=>S.mensajes=l,
+  changed:rerender,
+  clear:()=>{ S.clientes=[]; S.docs=[]; S.mensajes=[]; },
+  auth:()=>{ adminReady=true; if(location.hash==='#socios') renderAdmin(); }
+});
+})();
+</script>
+
+</body>
+</html>
