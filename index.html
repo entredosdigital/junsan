@@ -468,6 +468,15 @@ section.dark .empty{border-color:#3A3F45;color:#A9AEB3}
   .plug{align-self:flex-start;margin-left:6px}
 }
 @media (max-width:560px){.bolt3d{width:78px;left:86%;top:22%}}
+.wa-menu{position:fixed;z-index:70;background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:0 18px 40px -12px rgba(0,0,0,.35);padding:8px;width:min(290px,calc(100vw - 24px));display:flex;flex-direction:column;gap:2px}
+.wa-h{font-size:.8rem;font-weight:700;color:var(--muted);padding:6px 10px 8px;text-transform:uppercase;letter-spacing:.06em}
+.wa-menu a{display:flex;align-items:center;gap:12px;padding:10px;border-radius:8px;text-decoration:none;color:var(--ink)}
+.wa-menu a:hover,.wa-menu a:focus-visible{background:var(--sunk)}
+.wa-menu .ini{width:40px;height:40px;flex:none;display:grid;place-items:center;background:var(--plate);color:var(--plate-ink);font-family:var(--f-display);font-style:italic;font-weight:900;font-size:1.1rem;transform:skewX(-8deg)}
+.wa-menu .wn{display:flex;flex-direction:column;min-width:0;flex:1}
+.wa-menu .wn .mono{font-size:.85rem;color:var(--muted)}
+.wa-menu svg{width:22px;height:22px;color:#25D366;flex:none}
+.cinfo .v .who-n{font-family:var(--f-display);font-style:italic;font-weight:800;text-transform:uppercase;font-size:.95rem;background:var(--plate);color:var(--plate-ink);padding:1px 8px;transform:skewX(-8deg)}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -718,6 +727,7 @@ section.dark .empty{border-color:#3A3F45;color:#A9AEB3}
     </div>
   </footer>
 
+  <div class="wa-menu" id="wa-menu" role="menu" aria-label="Elegir con quién hablar por WhatsApp" hidden></div>
   <a class="fab" id="fab" href="#contacto" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg aria-hidden="true"><use href="#i-wa"/></svg></a>
 </div>
 
@@ -757,7 +767,7 @@ let toastT; function toast(msg){ const t=$('#toast'); t.textContent=msg; t.hidde
 async function copyText(text, btn){ try{ await navigator.clipboard.writeText(text); toast('Copiado'); }catch(e){ const r=document.createRange(); const n=btn&&btn.previousSibling; if(n){r.selectNodeContents(n.parentNode);const s=getSelection();s.removeAllRanges();s.addRange(r);} toast('Selecciona y copia el texto'); } }
 
 /* ---------- Estado ---------- */
-const DEFAULT_PUB = { razon:'JUNSAN, CB', nif:'E26621060', direccion:'C/ Segovia, 43, planta baja', cp:'02002', ciudad:'Albacete', tel:'670 80 16 37', tel2:'661 96 73 10', email:'junsanproelectric@gmail.com', zona:'Albacete y provincia', horario:'Lunes a viernes, 8:00–19:00', socios:'Pablo Junco e Iván Sánchez' };
+const DEFAULT_PUB = { razon:'JUNSAN, CB', nif:'E26621060', direccion:'C/ Segovia, 43, planta baja', cp:'02002', ciudad:'Albacete', tel:'670 80 16 37', tel2:'661 96 73 10', telNombre:'Pablo Junco', tel2Nombre:'Iván Sánchez', email:'junsanproelectric@gmail.com', zona:'Albacete y provincia', horario:'Lunes a viernes, 8:00–19:00', socios:'Pablo Junco e Iván Sánchez' };
 const S = { pub:{...DEFAULT_PUB}, priv:{ iban:'', socios:'', pie:'', diasVence:30, validez:30 },
   trabajos:null, clientes:[], docs:[], mensajes:[], workFilter:'Todos', tab:'resumen', docFilter:'todos', q:'' };
 /* ---------- Capa de datos: Supabase (web publicada) o almacén de Claude (artefacto) ---------- */
@@ -866,14 +876,15 @@ function renderPub(){
   document.querySelectorAll('[data-pub]').forEach(el=>{ const k=el.dataset.pub; const v = k==='direccion' ? [p.direccion,[p.cp,p.ciudad].filter(Boolean).join(' ')].filter(Boolean).join(', ') : p[k]; if(v) el.textContent=v; });
   const digits=t=>String(t||'').replace(/\D/g,'');
   const waUrl=(t,msg)=>`https://wa.me/34${digits(t)}${msg?'?text='+encodeURIComponent(msg):''}`;
-  const tel=(id,val)=>{ const el=$(id); if(!val){ el.hidden=true; return; } el.hidden=false; el.innerHTML=`<a href="tel:+34${digits(val)}" class="mono">${esc(val)}</a><a class="wa" href="${waUrl(val,'Hola JUNSAN, quería pedir presupuesto.')}" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a><button type="button" class="copy">Copiar</button>`; el.querySelector('.copy').onclick=e=>copyText(val,e.currentTarget); };
-  tel('#c-tel',p.tel); tel('#c-tel2',p.tel2);
+  const tel=(id,val,nom)=>{ const el=$(id); if(!val){ el.hidden=true; return; } el.hidden=false; el.innerHTML=`${nom?'<span class="who-n">'+esc(nom)+'</span>':''}<a href="tel:+34${digits(val)}" class="mono">${esc(val)}</a><a class="wa" href="${waUrl(val,'Hola JUNSAN, quería pedir presupuesto.')}" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a><button type="button" class="copy">Copiar</button>`; el.querySelector('.copy').onclick=e=>copyText(val,e.currentTarget); };
+  tel('#c-tel',p.tel,p.telNombre); tel('#c-tel2',p.tel2,p.tel2Nombre);
   const em=$('#c-email'); if(p.email){ em.innerHTML=`<a href="mailto:${esc(p.email)}">${esc(p.email)}</a><button type="button" class="copy">Copiar</button>`; em.querySelector('.copy').onclick=e=>copyText(p.email,e.currentTarget);} else em.textContent='—';
   $('#c-dir').textContent=[p.direccion,[p.cp,p.ciudad].filter(Boolean).join(' ')].filter(Boolean).join(', ')||'—';
   $('#c-horario').textContent=p.horario||'—';
   const main=p.tel||p.tel2; const wl=main?waUrl(main,'Hola JUNSAN, quería pedir presupuesto.'):'#contacto';
   ['#hero-wa','#fab'].forEach(id=>{ const a=$(id); a.href=wl; if(!main){a.removeAttribute('target');} });
   S._wa=main?(msg=>waUrl(main,msg)):null;
+  S._contacts=[[p.telNombre,p.tel],[p.tel2Nombre,p.tel2]].filter(x=>x[1]).map(([n,t])=>({n:n||'',t,url:waUrl(t,'Hola JUNSAN, quería pedir presupuesto.')}));
 }
 const CATS=['Reformas','Iluminación','Cuadros','Recarga VE','Domótica','Otros'];
 function renderWorks(){
@@ -912,6 +923,28 @@ $('#contact-form').addEventListener('submit', async e=>{
     $('#cf-copy').onclick=ev=>copyText(txt,ev.currentTarget);
   }finally{ btn.disabled=false; btn.textContent='Enviar consulta'; }
 });
+
+/* ---------- Menú de WhatsApp: elegir socio ---------- */
+(function waMenu(){
+  const menu=$('#wa-menu'); let openFor=null;
+  function close(){ menu.hidden=true; if(openFor) openFor.setAttribute('aria-expanded','false'); openFor=null; }
+  function open(btn){
+    const cs=S._contacts||[]; if(cs.length<2) return false;
+    menu.innerHTML='<div class="wa-h">¿Con quién quieres hablar?</div>'+cs.map(c=>{ const ini=c.n.split(/\s+/).map(w=>w[0]||'').join('').slice(0,2).toUpperCase()||'?'; return `<a role="menuitem" href="${c.url}" target="_blank" rel="noopener"><span class="ini">${esc(ini)}</span><span class="wn"><b>${esc(c.n||'Teléfono')}</b><span class="mono">${esc(c.t)}</span></span><svg aria-hidden="true"><use href="#i-wa"/></svg></a>`; }).join('');
+    menu.hidden=false; const r=btn.getBoundingClientRect(), m=menu.getBoundingClientRect(), pad=12;
+    let top = r.bottom+8+m.height>innerHeight ? r.top-8-m.height : r.bottom+8;
+    let left = Math.min(Math.max(pad, r.right-m.width), innerWidth-m.width-pad);
+    if(btn.id==='hero-wa') left=Math.min(Math.max(pad,r.left),innerWidth-m.width-pad);
+    menu.style.top=Math.max(pad,top)+'px'; menu.style.left=left+'px';
+    openFor=btn; btn.setAttribute('aria-expanded','true'); menu.querySelector('a').focus({preventScroll:true});
+    menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setTimeout(close,50)));
+    return true;
+  }
+  ['#hero-wa','#fab'].forEach(id=>{ const b=$(id); if(!b) return; b.setAttribute('aria-haspopup','menu'); b.addEventListener('click',e=>{ if(openFor===b){ e.preventDefault(); close(); return; } if(open(b)) e.preventDefault(); }); });
+  document.addEventListener('click',e=>{ if(openFor && !menu.contains(e.target) && !openFor.contains(e.target)) close(); });
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&openFor){ const b=openFor; close(); b.focus(); } });
+  addEventListener('scroll',()=>{ if(openFor) close(); },{passive:true});
+})();
 
 /* ---------- Páginas legales ---------- */
 function legalHTML(which){
@@ -1261,7 +1294,7 @@ function openTrabajo(w){
 /* ---------- Ajustes ---------- */
 function panelAjustes(P){
   const p=S.pub, v=S.priv;
-  const pubF=[['razon','Razón social'],['nif','NIF de la comunidad de bienes (empieza por E)'],['direccion','Dirección fiscal'],['cp','C.P.'],['ciudad','Localidad'],['tel','Teléfono 1 / WhatsApp'],['tel2','Teléfono 2 / WhatsApp'],['email','Correo'],['zona','Zona de trabajo'],['horario','Horario'],['socios','Socios (se muestra en el aviso legal)']];
+  const pubF=[['razon','Razón social'],['nif','NIF de la comunidad de bienes (empieza por E)'],['direccion','Dirección fiscal'],['cp','C.P.'],['ciudad','Localidad'],['tel','Teléfono 1 / WhatsApp'],['telNombre','Nombre del teléfono 1'],['tel2','Teléfono 2 / WhatsApp'],['tel2Nombre','Nombre del teléfono 2'],['email','Correo'],['zona','Zona de trabajo'],['horario','Horario'],['socios','Socios (se muestra en el aviso legal)']];
   P.innerHTML=`<div class="two">
   <div class="card"><h3>Datos de la empresa</h3><p class="hint" style="margin-top:-6px">Se muestran en la web y en presupuestos y facturas.</p><form class="grid" onsubmit="return false">${pubF.map(([k,l])=>`<div class="field ${['razon','nif','direccion'].includes(k)?'full':''}"><label for="a-${k}">${l}</label><input id="a-${k}" value="${esc(p[k]||'')}"></div>`).join('')}</form></div>
   <div class="card"><h3>Facturación</h3><p class="hint" style="margin-top:-6px">Solo lo ven los socios.</p><form class="grid" onsubmit="return false">
