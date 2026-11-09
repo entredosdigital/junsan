@@ -936,10 +936,11 @@ function makeSupabase(cfg){
   };
   A.hasAI = true;
   A.saveTarifa = async(t)=>{ const {error}=await sb.from('ajustes').upsert({id:'tarifa',data:t}); if(error) throw error; };
-  A.aiEstimate = async(texto)=>{ const ctl=new AbortController(); const tm=setTimeout(()=>ctl.abort(),25000);
+  const aiOnce = async(texto)=>{ const ctl=new AbortController(); const tm=setTimeout(()=>ctl.abort(),25000);
     try{ const r=await fetch(cfg.url+'/functions/v1/presupuesto-ia',{method:'POST',headers:{'Content-Type':'application/json',apikey:cfg.key},body:JSON.stringify({texto}),signal:ctl.signal});
       const j=await r.json().catch(()=>({})); if(!r.ok) throw Object.assign(new Error(j.error||'ia'),{code:j.error||'ia'}); return j; }
     finally{ clearTimeout(tm); } };
+  A.aiEstimate = async(texto)=>{ try{ return await aiOnce(texto); }catch(e){ if(e.code==='ia'||e.name==='AbortError'||e instanceof TypeError){ await new Promise(r=>setTimeout(r,1200)); return aiOnce(texto); } throw e; } };
   A.download = async(blob,name)=>{ const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download=name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(url),4000); };
   return A;
 }
