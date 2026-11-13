@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://wsbazesvcubvznstwsbk.supabase.co; font-src 'self'; connect-src 'self' https://wsbazesvcubvznstwsbk.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<style>html.framed{display:none!important}</style><script>if(window.top!==window.self){document.documentElement.className+=' framed';try{window.top.location=window.location.href}catch(e){}}</script>
 <meta name="description" content="JUNSAN Pro Electric, electricistas en Albacete: reformas eléctricas, iluminación LED, cuadros, boletines CIE y puntos de recarga. Presupuesto gratis.">
 <link rel="canonical" href="https://entredosdigital.github.io/junsan/">
 <meta property="og:type" content="website"><meta property="og:title" content="JUNSAN Pro Electric · Electricistas en Albacete"><meta property="og:description" content="Reformas eléctricas, iluminación LED, cuadros, boletines y recarga de coche eléctrico. Presupuesto gratis."><meta property="og:image" content="https://entredosdigital.github.io/junsan/img/salon-led.jpg"><meta property="og:url" content="https://entredosdigital.github.io/junsan/"><meta property="og:locale" content="es_ES">
@@ -1002,6 +1005,9 @@ const DEFAULT_TARIFA={"items": [{"id": "enchufe", "cap": "MECANISMOS Y PUNTOS DE
 /* ---------- Tarifa y motor de cálculo ---------- */
 function normTarifa(t){ const d=DEFAULT_TARIFA; const o={...d,...(t||{})}; o.items=(t&&Array.isArray(t.items)&&t.items.length)?t.items:d.items; o.caps=(t&&Array.isArray(t.caps)&&t.caps.length)?t.caps:d.caps; return o; }
 S.tarifa = normTarifa(null);
+const num = (v,min=-1e9,max=1e9) => { const n=Number(v); return Number.isFinite(n)?Math.min(max,Math.max(min,n)):0; };
+const str = (v,max=500) => (typeof v==='string'?v:(v==null?'':String(v))).slice(0,max);
+function sanLinea(l){ l=l||{}; return {cap:str(l.cap,120),c:str(l.c,600),q:num(l.q,0,1e6),u:str(l.u,12),p:num(l.p,-1e7,1e7),d:num(l.d,0,100),obs:str(l.obs,300)}; }
 const lineImp = l => r2((+l.q||0)*(+l.p||0)*(1-(+l.d||0)/100));
 const CALC_BASE={tipo:'completa',m2:100,plantas:1,dormitorios:3,banos:2,cocina:true,salon:true,exterior:false,garaje:false,persianas:0,led_m:0,rj45:null,tv:null,calefaccion:'no',aire:false,cargador:false,piscina:false,puerta:false,videoportero:false,secadora:false,lavavajillas:true,domotica:0,ventiladores:0,cuadro:true};
 const REFORMA_BASE={...CALC_BASE,tipo:'reforma',m2:20,dormitorios:0,banos:0,cocina:false,salon:false,lavavajillas:false,cuadro:false};
@@ -1096,7 +1102,7 @@ function renderCalcForm(){
   box.innerHTML=CALC_FIELDS.map(([k,l,t,opts])=>{
     if(t==='chk') return `<label class="kchk"><input type="checkbox" id="k-${k}" data-k="${k}" ${f[k]?'checked':''}><span>${l}</span></label>`;
     if(t==='sel') return `<div class="field"><label for="k-${k}">${l}</label><select id="k-${k}" data-k="${k}">${opts.map(([v,n])=>`<option value="${v}" ${f[k]===v?'selected':''}>${n}</option>`).join('')}</select></div>`;
-    return `<div class="field"><label for="k-${k}">${l}</label><input id="k-${k}" data-k="${k}" type="number" min="0" inputmode="numeric" value="${f[k]??''}"></div>`;
+    return `<div class="field"><label for="k-${k}">${l}</label><input id="k-${k}" data-k="${k}" type="number" min="0" inputmode="numeric" value="${f[k]==null?'':num(f[k],0,1e5)}"></div>`;
   }).join('');
   box.querySelectorAll('[data-k]').forEach(el=>el.addEventListener(el.type==='checkbox'||el.tagName==='SELECT'?'change':'input',()=>{
     const k=el.dataset.k; f[k]= el.type==='checkbox'?el.checked : el.tagName==='SELECT'?el.value : (el.value===''?0:Math.max(0,+el.value));
@@ -1395,7 +1401,7 @@ document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&$('#modal-root').i
 
 function openDoc(existing, tipo){
   const isNew=!existing||!existing.id;
-  const d = existing ? JSON.parse(JSON.stringify(existing)) : (()=>{ const f=todayISO(); const t=tipo; return {tipo:t, ...nextNumero(t,f), fecha:f, vence: t==='factura'?addDays(f,+S.priv.diasVence||30):addDays(f,+S.priv.validez||30), clienteId:'', cliente:{}, lineas:[{cap:'',c:'',q:1,u:'ud',p:0,d:0,obs:''}], objeto:S.tarifa.objeto||'', condiciones:S.tarifa.condiciones||'', iva:String(S.tarifa.iva||21), irpf:0, estado:t==='factura'?'emitida':'borrador', notas:'', formaPago: t==='factura'?'Transferencia bancaria':''}; })();
+  const d = existing ? (o=>{ o.lineas=(Array.isArray(o.lineas)?o.lineas:[]).slice(0,200).map(sanLinea); return o; })(JSON.parse(JSON.stringify(existing))) : (()=>{ const f=todayISO(); const t=tipo; return {tipo:t, ...nextNumero(t,f), fecha:f, vence: t==='factura'?addDays(f,+S.priv.diasVence||30):addDays(f,+S.priv.validez||30), clienteId:'', cliente:{}, lineas:[{cap:'',c:'',q:1,u:'ud',p:0,d:0,obs:''}], objeto:S.tarifa.objeto||'', condiciones:S.tarifa.condiciones||'', iva:String(S.tarifa.iva||21), irpf:0, estado:t==='factura'?'emitida':'borrador', notas:'', formaPago: t==='factura'?'Transferencia bancaria':''}; })();
   const T=d.tipo, isF=T==='factura';
   const ov=modal(`
     <div class="modal-h"><h2>${isF?'Factura':'Presupuesto'} <span class="mono" style="font-style:normal;font-size:1.1rem;font-weight:500">${esc(d.numero)}</span></h2><button class="x" aria-label="Cerrar" id="mx">×</button></div>
@@ -1438,7 +1444,7 @@ function openDoc(existing, tipo){
   $('#mx').onclick=closeModal;
   const linesEl=$('#d-lines');
   function drawLines(){
-    linesEl.innerHTML=d.lineas.map((l,i)=>`<tr data-i="${i}"><td><input data-k="cap" list="caps-dl" value="${esc(l.cap||'')}" placeholder="Capítulo" aria-label="Capítulo"></td><td><input data-k="c" value="${esc(l.c)}" placeholder="Ejemplo: Punto de luz empotrado con mecanismo" aria-label="Concepto"></td><td><input data-k="q" class="n" type="number" step="any" value="${l.q}" aria-label="Cantidad"></td><td><input data-k="u" value="${esc(l.u||'')}" aria-label="Unidad"></td><td><input data-k="p" class="n" type="number" step="0.01" value="${l.p}" aria-label="Precio"></td><td><input data-k="d" class="n" type="number" step="any" value="${l.d||0}" aria-label="Descuento"></td><td><input data-k="obs" value="${esc(l.obs||'')}" aria-label="Observaciones"></td><td class="mono" style="text-align:right" data-imp>${money(r2(l.q*l.p*(1-(l.d||0)/100)))}</td><td><button class="rm" aria-label="Quitar línea" data-rm="${i}">×</button></td></tr>`).join('');
+    linesEl.innerHTML=d.lineas.map((l,i)=>`<tr data-i="${i}"><td><input data-k="cap" list="caps-dl" value="${esc(l.cap||'')}" placeholder="Capítulo" aria-label="Capítulo"></td><td><input data-k="c" value="${esc(l.c)}" placeholder="Ejemplo: Punto de luz empotrado con mecanismo" aria-label="Concepto"></td><td><input data-k="q" class="n" type="number" step="any" value="${num(l.q)}" aria-label="Cantidad"></td><td><input data-k="u" value="${esc(l.u||'')}" aria-label="Unidad"></td><td><input data-k="p" class="n" type="number" step="0.01" value="${num(l.p)}" aria-label="Precio"></td><td><input data-k="d" class="n" type="number" step="any" value="${num(l.d)}" aria-label="Descuento"></td><td><input data-k="obs" value="${esc(l.obs||'')}" aria-label="Observaciones"></td><td class="mono" style="text-align:right" data-imp>${money(r2(l.q*l.p*(1-(l.d||0)/100)))}</td><td><button class="rm" aria-label="Quitar línea" data-rm="${i}">×</button></td></tr>`).join('');
     linesEl.querySelectorAll('input').forEach(inp=>inp.oninput=()=>{ const tr=inp.closest('tr'), i=+tr.dataset.i, k=inp.dataset.k; d.lineas[i][k] = (['c','u','cap','obs'].includes(k)) ? inp.value : (parseFloat(inp.value)||0); const l=d.lineas[i]; tr.querySelector('[data-imp]').textContent=money(r2(l.q*l.p*(1-(l.d||0)/100))); drawTot(); });
     linesEl.querySelectorAll('[data-rm]').forEach(b=>b.onclick=()=>{ d.lineas.splice(+b.dataset.rm,1); if(!d.lineas.length) d.lineas.push({cap:(d.lineas[d.lineas.length-1]||{}).cap||'',c:'',q:1,u:'ud',p:0,d:0,obs:''}); drawLines(); drawTot(); });
   }
@@ -1647,7 +1653,7 @@ function panelMensajes(P){
   P.querySelectorAll('[data-ok]').forEach(b=>b.onclick=()=>A.msgUpdate(S.mensajes.find(x=>x.id===b.dataset.ok),'atendido').catch(()=>toast('No se ha podido actualizar')));
   P.querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>{ if(b.dataset.armed){ A.msgDelete(S.mensajes.find(x=>x.id===b.dataset.del)).catch(()=>toast('No se ha podido borrar')); } else { b.dataset.armed='1'; b.textContent='Pulsa otra vez para borrar'; b.classList.add('btn-danger'); } });
   P.querySelectorAll('[data-pres]').forEach(b=>b.onclick=()=>{ const m=S.mensajes.find(x=>x.id===b.dataset.pres); const ex=S.clientes.find(c=>c.tel&&c.tel===m.tel);
-    const go=c=>{ A.msgUpdate(m,'atendido').catch(()=>{}); const f=todayISO(); openDocFrom({tipo:'presupuesto',...nextNumero('presupuesto',f),fecha:f,vence:addDays(f,+S.priv.validez||30),clienteId:c.id,cliente:snap(c),lineas:(m.estimacion&&Array.isArray(m.estimacion.lineas)&&m.estimacion.lineas.length)?m.estimacion.lineas.map(l=>({...l})):[{cap:'',c:m.tipo,q:1,u:'ud',p:0,d:0,obs:''}],objeto:S.tarifa.objeto||'',condiciones:S.tarifa.condiciones||'',iva:String(S.tarifa.iva||21),irpf:0,estado:'borrador',notas:''}); };
+    const go=c=>{ A.msgUpdate(m,'atendido').catch(()=>{}); const f=todayISO(); openDocFrom({tipo:'presupuesto',...nextNumero('presupuesto',f),fecha:f,vence:addDays(f,+S.priv.validez||30),clienteId:c.id,cliente:snap(c),lineas:(m.estimacion&&Array.isArray(m.estimacion.lineas)&&m.estimacion.lineas.length)?m.estimacion.lineas.slice(0,200).map(sanLinea):[{cap:'',c:m.tipo,q:1,u:'ud',p:0,d:0,obs:''}],objeto:S.tarifa.objeto||'',condiciones:S.tarifa.condiciones||'',iva:String(S.tarifa.iva||21),irpf:0,estado:'borrador',notas:''}); };
     if(ex) go(ex); else openCliente(null, go, {nombre:m.nombre,tel:m.tel,email:m.email}); });
 }
 
@@ -1812,7 +1818,6 @@ function panelAjustes(P){
 
 /* ---------- Arranque ---------- */
 renderPub(); renderWorks(); initCalc(); route();
-if(/[?&]debug\b/.test(location.search)) window.__j={S,calc,buildPDF,previewDoc,cantidades,parseLocal,openDoc,panelTarifa};
 const rerender=()=>{ if(location.hash==='#socios' && !$('#modal-root').innerHTML && !['ajustes','tarifa'].includes(S.tab)) renderAdmin(); };
 A.start({
   pub:d=>{ S.pub={...DEFAULT_PUB,...d}; renderPub(); },
